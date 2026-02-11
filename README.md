@@ -111,3 +111,70 @@ You must submit the following via Moodle by the deadline:
 - Link to your public project planning board (GitHub Projects)
 - A written reflection on the assignment process.
 ⚠️ Important: Your GitHub repository must be public and accessible when graded. If your repository is inaccessible or the application link is broken, the code portion will be treated as a non-submission, resulting in a "Not Passed (fail)" grade. The same applies to your Figma links - ensure it can be viewed in a logged out status. Please test your links before submitting. Should a link not be accessible by the grader, no marks will be allocated for the related criteria. Test all links in an incognito browser tab before submission.
+
+## Grading Criteria
+_Grading will be based on the successful implementation of the project against the following criteria:_
+
+### Style Guide:
+
+- Font families are present
+- Primary and secondary colors are defined
+- Logo is present
+- Buttons and common components are present
+- Theme is well defined
+- Carefully considered and executed; acceptable at a professional establishment
+
+### Design Files:
+
+Hi-fidelity Figma prototypes for desktop and mobile that replicate the final application
+
+### Planning Documents:
+
+- GitHub Project with a Kanban board and Roadmap view
+- Tasks with comprehensive titles and detailed descriptions or subtasks
+- Tasks include start and end dates
+- Tasks include sizing, estimates and priorities
+- Project meticulously planned, including a Roadmap view
+User Stories:
+
+All listed user stories are completed to a high standard:
+
+### User Experience:
+
+- Form validation with helpful input guidelines
+- Clear success/error feedback for actions
+- Easy to use and navigate (obvious usability)
+- Loading indicators shown when users must wait
+- Sensible validation, error handling, and user feedback throughout
+
+### Best Practice:
+
+- Semantic, valid HTML
+- SEO best practices applied
+- CSS is DRY
+- Responsive styling replicates the design
+- Modular, clean JavaScript
+- Error handling in place
+- HTML, JavaScript, and CSS best practices are widely observed
+
+## AI Policy (Read Carefully)
+
+Allowed AI Uses (encouraged with citation in your reflection report)
+
+For this specific assignment, you may use AI for:
+
+- Brainstorming project structure or user flow.
+- Explaining complex JavaScript concepts (e.g., closures, promises).
+- Generating placeholder text or content for *optional* pages like "Terms and Conditions."
+- Debugging assistance by describing errors.
+
+**All AI use must be documented in a dedicated `AI_LOG.md` or `README.md` section.**
+
+**Restricted / Not Allowed**
+
+The following uses are prohibited and may be treated as academic dishonesty:
+
+- DO NOT use AI to generate the core application logic for fetching APIs, managing the cart state, or dynamically rendering product pages.
+- DO NOT submit code you cannot explain line-by-line.
+- DO NOT copy-paste AI-generated code without attribution, understanding, and integration into your own solution.
+- You must maintain an AI usage log in your project's reflection report documenting all AI assistance received.
