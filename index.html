@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="/styles.css">
     <link rel="stylesheet" href="/reset.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-
     <title>Clair Collective | Home</title>
 </head>
 <!-- REQUIREMENTS: The Product Feed Page must include a carousel and a list of at least 12 products 
@@ -21,17 +20,38 @@ As a user, I want the carousel to return to the first product after reaching the
 As a user, I want to click on a button for each carousel item, which will take me to the product page, where I can view more details
 As a user, I want to view a list of the 12 products in a responsive thumbnail grid on the product feed page, so I can easily select which product to view
 As a user, I want each thumbnail image in the product feed to be clickable, taking me to the product page to see more details about that specific product -->
+
 <body>
-    <header>
-        <nav>
-            <ul>
+<header>
+    <nav class="nav">
+        <h1><a href="./views/Home/index.html">Clair Collective</a></h1>
+        <ul>
                 <li><a href="/pages/products.html">All Products</a></li>
                 <li><a href="cart/index.html">Cart</a></li>
                 <!-- <li><a href="/pages/contact.html">Contact</a></li> -->
             </ul>
-        </nav>
-    </header>
-    <h1>Clair Collective</h1>
+        <!-- <div class="filter-group">
+        <label for="gender">Gender:</label>
+        <select id="gender">
+            <option value="all">All</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="unisex">Unisex</option>
+        </select>
+        <label for="category">Category:</label>
+        <select id="category">
+            <option value="all">All</option>
+            <option value="outdoors">Outdoors</option>
+            <option value="training">Training</option>
+        </select> -->
+            <i class="fa-solid fa-cart-shopping"></i><a href="./views/checkout/index.html">Cart (<span id="cart-count">0</span>)</a>
+            </div>
+    </nav>    
+</header>
+<main>
+<div id="container" class="container"></div>
+</main>
+<script src="/js/pages/checkout.js"></script>
+<script src="/js/pages/home.js"></script>
 </body>
 </html>
-

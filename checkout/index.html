@@ -1,16 +1,30 @@
+<!-- Path: /checkout/index.html
+User Stories:
+As a user, I want to fill out a delivery address form with my details
+As a user, I want to select from various payment methods (functionality not required - form only)
+As a user, I want a "Complete Purchase" button that submits my order and takes me to a success page -->
+
+<!-- Code is taken from my js assignment https://github.com/SondreGundersrud/sondregundersrud.github.io/blob/main/views/checkout/index.html -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clair Collective | Checkout</title>
+<link rel="stylesheet" href="../css/styles.css?v=4" />
+<!-- <script src="/js/cart.js" defer></script>
+<script src="/js/pages/checkout.js" defer></script> -->
+<title>Clair Collective | Checkout</title>
 </head>
-<!-- Path: /checkout/index.html
-User Stories:
-As a user, I want to fill out a delivery address form with my details
-As a user, I want to select from various payment methods (functionality not required - form only)
-As a user, I want a "Complete Purchase" button that submits my order and takes me to a success page -->
 <body>
-    
+<header>
+<h1>Checkout</h1>
+<a href="./views/home/index.html">Back to products</a>
+</header>
+<div id="cart-list"></div>
+<div id="cart-summary"></div>
+<button id="place-order">Place order</button>
+<!-- <script src="./js/pages/checkout.js" defer></script> -->
 </body>
 </html>
