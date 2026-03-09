@@ -15,7 +15,7 @@ Prototyping tool: Figma
 ### Functional Requirements/Process
 Pages & User Stories
 
-Product Feed Page
+### Product Feed Page
 
 Method: GET /online-shop
 
