@@ -8,11 +8,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/styles.css">
-    <link rel="stylesheet" href="/reset.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <title>Clair Collective | Home</title>
 </head>
-<!-- REQUIREMENTS: The Product Feed Page must include a carousel and a list of at least 12 products 
+<!-- 
+REQUIREMENTS: The Product Feed Page must include a carousel and a list of at least 12 products.
 User Stories:
 As a user, I want to see an interactive banner carousel on the product feed page, so that I can view a rotation of three products
 As a user, I want to click on the previous or next button in the carousel to animate and reveal another product, to ensure I can see different products easily
@@ -24,12 +24,13 @@ As a user, I want each thumbnail image in the product feed to be clickable, taki
 <body>
 <header>
     <nav class="nav">
-        <h1><a href="./views/Home/index.html">Clair Collective</a></h1>
+        <div class="logo"><a href="./views/Home/index.html">Clair Collective</a></div>
         <ul>
-                <li><a href="/pages/products.html">All Products</a></li>
-                <li><a href="cart/index.html">Cart</a></li>
-                <!-- <li><a href="/pages/contact.html">Contact</a></li> -->
-            </ul>
+            <li><a href="/pages/products.html">All Products</a></li>
+            <li><a href="account/login.html">Profile</a></li>
+            <li><a href="cart/index.html">Cart</a></li>
+            <!-- <li><a href="/pages/contact.html">Contact</a></li> -->
+        </ul>
         <!-- <div class="filter-group">
         <label for="gender">Gender:</label>
         <select id="gender">
@@ -51,7 +52,6 @@ As a user, I want each thumbnail image in the product feed to be clickable, taki
 <main>
 <div id="container" class="container"></div>
 </main>
-<script src="/js/pages/checkout.js"></script>
-<script src="/js/pages/home.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
