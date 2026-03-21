@@ -7,3 +7,23 @@
 } 
 
 */
+
+header nav {
+    display: flex;
+    list-style: none;
+    justify-content: center
+}
+
+.button {
+    outline-color:transparent;
+}
+
+.button:is(:hover, :focus) {
+    box-shadow: 0 0 0 3px var(--color-gold);
+}
+
+.container {
+    width: clamp(3rem, 80%, 1200px);
+    margin: 0 auto;
+    padding: 2em;
+}

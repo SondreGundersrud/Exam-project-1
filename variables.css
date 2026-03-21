@@ -16,3 +16,6 @@ body {
 --main-font: 'Red Hat Display', sans-serif;
 }
 
+h1 {
+    font-size: clamp(1.8rem, 7vw + 1rem, 5rem);
+}

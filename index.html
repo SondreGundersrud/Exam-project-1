@@ -22,34 +22,20 @@ As a user, I want to view a list of the 12 products in a responsive thumbnail gr
 As a user, I want each thumbnail image in the product feed to be clickable, taking me to the product page to see more details about that specific product -->
 
 <body>
-<header>
+<header class="header">
     <nav class="nav">
         <div class="logo"><a href="./views/Home/index.html">Clair Collective</a></div>
         <ul>
             <li><a href="/pages/products.html">All Products</a></li>
             <li><a href="account/login.html">Profile</a></li>
             <li><a href="cart/index.html">Cart</a></li>
-            <!-- <li><a href="/pages/contact.html">Contact</a></li> -->
         </ul>
-        <!-- <div class="filter-group">
-        <label for="gender">Gender:</label>
-        <select id="gender">
-            <option value="all">All</option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-            <option value="unisex">Unisex</option>
-        </select>
-        <label for="category">Category:</label>
-        <select id="category">
-            <option value="all">All</option>
-            <option value="outdoors">Outdoors</option>
-            <option value="training">Training</option>
-        </select> -->
-            <i class="fa-solid fa-cart-shopping"></i><a href="./views/checkout/index.html">Cart (<span id="cart-count">0</span>)</a>
-            </div>
+        <i class="fa-solid fa-cart-shopping"></i><a href="./views/checkout/index.html">Cart (<span id="cart-count">0</span>)</a>
+        </div>
     </nav>    
 </header>
 <main>
+    <h1>Welcome to Clair Collective</h1>
 <div id="container" class="container"></div>
 </main>
 <script src="script.js"></script>
