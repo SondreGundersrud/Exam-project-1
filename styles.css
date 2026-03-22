@@ -110,6 +110,11 @@ header nav {
     background-color: rgba(var(--color-copper));
 }
 
+.slider-nav a:hover, .slider-nav a:active {
+    background-color: rgba(var(--color-copper));
+    opacity: 1;
+}
+
 /* .button {
     outline-color:transparent;
 }

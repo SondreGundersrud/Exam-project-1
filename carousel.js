@@ -15,3 +15,5 @@ button.addEventListener("click", () => {
     delete activeSlide.dataset.active;
 })
 })
+
+const dots = document.querySelectorAll(".slider-nav a");
