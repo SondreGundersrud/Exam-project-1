@@ -17,6 +17,7 @@ As a user, I want each thumbnail image in the product feed to be clickable, taki
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <script src="carousel.js" defer></script>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <title>Clair Collective | Home</title>
 </head>
@@ -35,23 +36,28 @@ As a user, I want each thumbnail image in the product feed to be clickable, taki
 </header>
 <main>
     <section aria-label="Newest products">
-        <div class="carousel">
-            <button class="carousel-button prev" aria-label="Previous product">&#10147;</button>
-            <button class="carousel-button next" aria-label="Next product">&#10147;</button>
-            <ul>
-                <li class="slide" data-active>
+        <div class="carousel" data-carousel>
+            <button class="carousel-button prev" aria-label="Previous product" data-carousel-button="prev">&#10147;</button>
+            <button class="carousel-button next" aria-label="Next product" data-carousel-button="next">&#10147;</button>
+            <ul data-slides>
+                <li class="slide" id="slide-1" data-active>
                     <img src="https://static.noroff.dev/api/online-shop/5-headphones-black.jpg" alt="A set of wireless black headphones.">
                 </li>
-                <li class="slide">
+                <li class="slide" id="slide-2">
                     <img src="https://static.noroff.dev/api/online-shop/15-watch-black.jpg" alt="A classic black leather watch, perfect for any occasion.">
                 </li>
-                <li class="slide">
+                <li class="slide" id="slide-3">
                     <img src="https://static.noroff.dev/api/online-shop/18-shoes-blue.jpg" alt="A pair of stylish blue suede shoes for both formal and casual occasions.">
                 </li>
             </ul>
+            <div class="slider-nav">
+                <a href="#slide-1"></a>
+                <a href="#slide-2"></a>
+                <a href="#slide-3"></a>
+            </div>
         </div>
     </section>
 </main>
-<script src="script.js"></script>
+<!-- <script src="script.js"></script> -->
 </body>
 </html>
