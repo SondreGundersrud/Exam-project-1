@@ -41,8 +41,22 @@ header nav {
     background-color: rgba(var(--color-black), 0.2);
 }
 
+.carousel-button:is(:hover, :focus) {
+    color: var(--color-copper);
+    background-color: rgba(var(--color-black), 0.4);
+}
+
+.carousel-button:focus {
+    outline: 2px solid var(--color-black);
+}
+
 .carousel-button.prev {
-    transform: scaleX(-1);
+    transform: translateY(-50%) scaleX(-1);
+    left: 1rem;
+}
+
+.carousel-button.next {
+    right: 1rem;
 }
 
 .slide {
