@@ -163,13 +163,14 @@ footer {
     opacity: 1;
 }
 
-/* .button {
-    outline-color:transparent;
+.productSlide1, .productSlide2, .productSlide3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 15px;
 }
-
-.button:is(:hover, :focus) {
-    box-shadow: 0 0 0 3px var(--color-gold);
-} */
 
 .container {
     width: clamp(3rem, 80%, 1200px);

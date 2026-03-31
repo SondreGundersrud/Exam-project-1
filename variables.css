@@ -13,6 +13,11 @@
 
 h1 {
     font-size: clamp(1.8rem, 7vw + 1rem, 5rem);
+    font-family: var(--main-font);
+}
+
+p {
+    font-family: var(--main-font);
 }
 
 .ctaButton {
@@ -33,8 +38,4 @@ h1 {
     background-color: var(--color-copper);
     color: var(--color-lgrey);
     border-color: var(--color-dgrey);
-}
-
-p {
-    font-family: var(--main-font);
 }
