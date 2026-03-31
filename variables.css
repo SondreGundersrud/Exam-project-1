@@ -2,11 +2,6 @@
     box-sizing: border-box;
 }
 
-body {
-    margin:0;
-    /* width: 100vw; */
-}
-
 :root {
 --color-gold: #d4af37;
 --color-lgrey: #e5e0d8;
@@ -18,4 +13,28 @@ body {
 
 h1 {
     font-size: clamp(1.8rem, 7vw + 1rem, 5rem);
+}
+
+.ctaButton {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--color-gold);
+    color: var(--color-black);
+    text-decoration: none;
+    font-weight: 500;
+    font-family: var(--main-font);
+    border: solid 2px var(--color-dgrey);
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+}
+
+.ctaButton:is(:hover, :focus) {
+    background-color: var(--color-copper);
+    color: var(--color-lgrey);
+    border-color: var(--color-dgrey);
+}
+
+p {
+    font-family: var(--main-font);
 }
