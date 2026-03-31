@@ -1,4 +1,5 @@
 const buttons = document.querySelectorAll("[data-carousel-button]");
+const dots = document.querySelectorAll(".slider-nav a");
 
 buttons.forEach((button) => {
 button.addEventListener("click", () => {
@@ -12,8 +13,6 @@ button.addEventListener("click", () => {
     if (newIndex >= slides.children.length) newIndex = 0;
 
     slides.children[newIndex].dataset.active = true;
-    delete activeSlide.dataset.active;
-})
+    delete activeSlide.dataset.active;})
 })
 
-const dots = document.querySelectorAll(".slider-nav a");
