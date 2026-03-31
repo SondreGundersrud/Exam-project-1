@@ -8,10 +8,27 @@
 
 */
 
-header nav {
+.header nav{
     display: flex;
     list-style: none;
-    justify-content: center
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 2rem;
+}
+
+.header nav ul {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    gap: 1rem;
+}
+
+footer {
+    background-color: var(--color-black);
+    color: var(--color-lgrey);
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
 }
 
 .carousel {
