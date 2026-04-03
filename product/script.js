@@ -3,6 +3,9 @@
 const container = document.querySelector("#container");
 const API_URL = "https://v2.api.noroff.dev/online-shop";
 
+const genderSelect = document.querySelector("#gender");
+const categorySelect = document.querySelector("#category");
+
 let allProducts = [];
 
 async function fetchAPIProducts() {
@@ -10,8 +13,10 @@ try {
     const response = await fetch(API_URL);
     const data = await response.json();
     allProducts = Array.isArray(data?.data) ? data.data : data;
-    const previewProducts = allProducts.slice(0, 11);
-    render(previewProducts);
+
+    render(allProducts);
+    genderSelect.addEventListener("change", applyFilters);
+    categorySelect.addEventListener("change", applyFilters);
 } catch (error) {
     container.textContent = "Could not load products at this time.";
     console.error("Error while fetching products:", error.message);
@@ -38,7 +43,7 @@ function render(list) {
     image.alt = product?.image?.alt ?? product?.title ?? "product";
     title.textContent = product.title;
     price.textContent = `$ ${Number(product.price).toLocaleString("en-US", { minimumFractionDigits: 2 })}`;
-    link.href = `./product/index.html?id=${product.id}`;
+    link.href = `./Views/product/index.html?id=${product.id}`;
 
     content.appendChild(title);
     content.appendChild(price);
@@ -47,6 +52,32 @@ function render(list) {
     link.appendChild(box);
     container.appendChild(link);
   });
+}
+
+function applyFilters() {
+  const g = genderSelect.value.toLowerCase();
+  const c = categorySelect.value.toLowerCase();
+  const norm = (v) => (v ?? "").toString().toLowerCase();
+
+  const filtered = allProducts.filter((p) => {
+    const gender = norm(p.gender);
+    const category = norm(p.category);
+    const tags = Array.isArray(p.tags) ? p.tags.map(norm) : [];
+
+    const genderMatch =
+      g === "all" ||
+      gender === g ||
+      (g === "unisex" && (gender === "" || gender === "unisex"));
+
+    const categoryMatch =
+      c === "all" ||
+      category === c ||
+      tags.includes(c); 
+
+    return genderMatch && categoryMatch;
+  });
+
+  render(filtered.length ? filtered : allProducts); 
 }
 
 window.Cart?.updateCartCount?.();
