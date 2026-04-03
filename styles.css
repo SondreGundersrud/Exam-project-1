@@ -26,12 +26,23 @@ h1 {
     font-family: var(--main-font);
 }
 
+a, a:visited {
+    text-decoration: none;
+    color: inherit;
+}
+
 p {
     font-family: var(--main-font);
     text-wrap: balance;
 }
 
-.header nav{
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header nav {
     display: flex;
     list-style: none;
     justify-content: space-between;
@@ -71,7 +82,6 @@ footer {
     padding: 1rem 0;
     margin-top: 2rem;
     margin-bottom: 0;
-    /* position:  bottom; */
 }
 
 .carousel {
@@ -224,7 +234,7 @@ footer {
 .box-price {
     font-size: 1.1rem;
     font-weight: bold;
-    color: #fff; 
+    color: #fff;
 }
 
 .product-image {
@@ -263,7 +273,7 @@ footer {
 }
 
 .product-info button {
-    
+    margin-right: 20px;
 }
 
 .product-title {
