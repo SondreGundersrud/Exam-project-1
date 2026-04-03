@@ -10,7 +10,7 @@ try {
     const response = await fetch(API_URL);
     const data = await response.json();
     allProducts = Array.isArray(data?.data) ? data.data : data;
-    const previewProducts = allProducts.slice(0, 11);
+    const previewProducts = allProducts.slice(0, 12);
     render(previewProducts);
 } catch (error) {
     container.textContent = "Could not load products at this time.";
