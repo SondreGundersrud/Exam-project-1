@@ -8,3 +8,6 @@ Asked Gemini to explain the differences in how header, .header, .nav, and .heade
 
 2026-04-03:
 Asked Gemini to debug my js code. Could not load products on main page.
+
+2026-04-04:
+Asked Gemini to debug my .carousel (CSS) code as it for some reason was not responding to my height settings.
