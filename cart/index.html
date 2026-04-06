@@ -1,10 +1,14 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clair Collective | Cart</title>
-</head>
+    <meta name="description" content="Clair Collective is the number one destination for premium fashion and lifestyle products.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <title>Clair Collective | Home</title>
 <!-- Path: /cart/index.html
 User Stories:
 As a user, I want to view all products I've added to my cart on a dedicated cart page
@@ -13,7 +17,30 @@ As a user, I want to adjust the quantity of items in my cart
 As a user, I want to remove items from my cart
 As a user, I want to clear all items from my cart with one action
 As a user, I want a "Proceed to Checkout" button that takes me to the checkout page -->
+</head>
 <body>
-    
+<header class="header">
+    <nav class="nav">
+        <div class="logo"><a href="../index.html"><img src="../assets/CC_logo_cropped.png" alt="Clair Collective Logo"></a></div>
+        <ul>
+            <li><a href="../product/allProducts.html">All Products</a></li>
+            <li><a href="../account/login.html">Profile</a></li>
+            <i class="fa-solid fa-cart-shopping"></i><a href="../checkout/index.html">Cart (<span id="cart-count">0</span>)</a></ul>
+    </nav>
+</header>
+<main>
+    <section aria-label="Shopping Cart">
+        <h1>Your Shopping Cart</h1>
+        <div id="cart-items"></div>
+        <div id="cart-total"></div>
+        <button id="clear-cart">Clear Cart</button>
+        <a href="../checkout/index.html" class="ctaButton">Proceed to Checkout</a>
+    </section>
+</main>
+<footer>
+    <div class="logo"><a href="../index.html"><img src="../assets/CC_logo_cropped.png" alt="Clair Collective Logo"></a></div>
+    <p>&copy; 2024 Clair Collective. All rights reserved.</p>
+</footer>
+<script src="../product/script.js"></script>
 </body>
 </html>

@@ -1,14 +1,50 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clair Collective | Register</title>
-</head>
+    <meta name="description" content="Clair Collective is the number one destination for premium fashion and lifestyle products.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <title>Clair Collective | Home</title>
 <!-- Method: POST /auth/register
 Path: /account/register.html
 User Stories: As a user, I want a validated register form that allows me to create a new account by entering my email and password -->
+</head>
 <body>
-    
+<header class="header">
+    <nav class="nav">
+        <div class="logo"><a href="../index.html"><img src="../assets/CC_logo_cropped.png" alt="Clair Collective Logo"></a></div>
+        <ul>
+            <li><a href="../product/allProducts.html">All Products</a></li>
+            <li><a href="../account/login.html">Profile</a></li>
+            <i class="fa-solid fa-cart-shopping"></i><a href="../checkout/index.html">Cart (<span id="cart-count">0</span>)</a></ul>
+    </nav>
+</header>
+<main>
+    <section class="loginNewUser">
+        <!-- Register Form -->
+        <form id="register-form" action="/auth/register" method="POST">
+            <div>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit">Login</button>
+        <!-- Already have an account? -->
+        <p>Already have an account? <a href="../account/login.html">Login here</a></p>
+        </form>
+    </section>
+</main>
+<footer>
+    <div class="logo"><a href="../index.html"><img src="../assets/CC_logo_cropped.png" alt="Clair Collective Logo"></a></div>
+    <p>&copy; 2024 Clair Collective. All rights reserved.</p>
+</footer>
+<script src="../product/script.js"></script>
 </body>
 </html>

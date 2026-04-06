@@ -1,14 +1,50 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clair Collective | Login</title>
-</head>
-<!-- Method: POST /auth/login
+    <meta name="description" content="Clair Collective is the number one destination for premium fashion and lifestyle products.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <title>Clair Collective | Home</title>
+    <!-- Method: POST /auth/login
 Path: /account/login.html
 User Stories: As a user, I want a validated login form that allows me to request and save a token to my browser by entering my email and password, allowing me to make purchases -->
+</head>
 <body>
-    
+<header class="header">
+    <nav class="nav">
+        <div class="logo"><a href="../index.html"><img src="../assets/CC_logo_cropped.png" alt="Clair Collective Logo"></a></div>
+        <ul>
+            <li><a href="../product/allProducts.html">All Products</a></li>
+            <li><a href="../account/login.html">Profile</a></li>
+            <i class="fa-solid fa-cart-shopping"></i><a href="../checkout/index.html">Cart (<span id="cart-count">0</span>)</a></ul>
+    </nav>
+</header>
+<main>
+    <section class="loginOldUser">
+        <!-- Login Form -->
+        <form id="login-form" action="/auth/login" method="POST">
+            <div>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit">Login</button>
+        <!-- New user?-->
+        <p>Don't have an account? <a href="../account/register.html">Register here</a></p>
+        </form>
+    </section>
+</main>
+<footer>
+    <div class="logo"><a href="../index.html"><img src="../assets/CC_logo_cropped.png" alt="Clair Collective Logo"></a></div>
+    <p>&copy; 2024 Clair Collective. All rights reserved.</p>
+</footer>
+<script src="../product/script.js"></script>
 </body>
 </html>
