@@ -1,21 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clair Collective | Purchase Successful</title>
-</head>
-<!-- Path: /success/index.html
-User Stories:
-As a user, I want to see a success message confirming my purchase was completed
-As a user, I want to have the option to return to the product feed page -->
-<body>
-    
-</body>
-    <h1>Thank you for your order!</h1>
-    <p id="order-id"></p>
-    <div id="order-summary"></div>
-    <a href="./views/home/index.html">Continue shopping</a>
-    <script src="../js/pages/confirmation.js" defer></script>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Clair Collective is the number one destination for premium fashion and lifestyle products.">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link href="https://fontawesome.com/icons/circle-check?f=classic&s=solid" crossorigin>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="../styles.css">
+        <!-- <link rel="icon" href="../favicon.ico" type="image/x-icon"> -->
+        <title>Clair Collective | Purchase Successful</title>
+    </head>
+    <!-- Path: /success/index.html
+    User Stories:
+    As a user, I want to see a success message confirming my purchase was completed
+    As a user, I want to have the option to return to the product feed page -->
+    <body>
+        <header class="header">
+            <nav class="nav">
+                <div class="logo"><a href="../index.html"><img src="../assets/CC_logo_cropped.png" alt="Clair Collective Logo"></a></div>
+                <ul>
+                    <li><a href="../product/allProducts.html">All Products</a></li>
+                    <li><a href="../account/login.html">Profile</a></li>
+                    <li><a href="../checkout/index.html">Cart (<span id="cart-count">0</span>)</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <section class="successfulOrder" aria-label="Purchase confirmation">
+                <h1>Thank you for your order!</h1>
+                <i class="fa-solid fa-circle-check"></i>
+                <p id="order-id"></p>
+                <div id="order-summary"></div>
+                <a href="../index.html" class="ctaButton">Continue shopping</a>
+                <script src="../success/success.js" defer></script>
+            </section>
+        </main>
+        <footer>
+            <div class="logo"><a href="../index.html"><img src="../assets/CC_logo_cropped.png" alt="Clair Collective Logo"></a></div>
+            <p>&copy; 2024 Clair Collective. All rights reserved.</p>
+        </footer>
+    </body>
 </html>
