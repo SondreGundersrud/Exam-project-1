@@ -26,19 +26,26 @@ User Stories: As a user, I want a validated login form that allows me to request
 </header>
 <main>
     <section class="loginOldUser">
+        <h1>Welcome back to Clair Collective!</h1>
         <!-- Login Form -->
         <form id="login-form" action="/auth/login" method="POST">
+            <h2>Login</h2>
             <div>
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
+                <input type="email" placeholder="Email" id="email" name="email" required>
             </div>
             <div>
                 <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
+                <input type="password" placeholder="Password" name="password" required>
             </div>
-            <button type="submit">Login</button>
+            <div class="checkbox">
+                <input type="checkbox" id="remember" name="remember">
+                <label for="remember">Remember me</label>
+            </div>
+            <button type="submit" class="ctaButton">Login</button>
+            <p><a href="../account/forgotPassword.html">Forgot your password?</a></p>
         <!-- New user?-->
-        <p>Don't have an account? <a href="../account/register.html">Register here</a></p>
+        <p>Don't have an account? <a href="../account/register.html" class="clickHere">Register here</a></p>
         </form>
     </section>
 </main>

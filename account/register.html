@@ -26,19 +26,21 @@ User Stories: As a user, I want a validated register form that allows me to crea
 </header>
 <main>
     <section class="loginNewUser">
+        <h1>Join the Clair Collective community!</h1>
         <!-- Register Form -->
         <form id="register-form" action="/auth/register" method="POST">
+            <h2>Create your account</h2>
             <div>
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
+                <input type="email" placeholder="YourEmail@email.com" id="email" name="email" required>
             </div>
             <div>
                 <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
+                <input type="password" placeholder="Your Password" id="password" name="password" required>
             </div>
-            <button type="submit">Login</button>
+            <button type="submit" class="ctaButton">Register</button>
         <!-- Already have an account? -->
-        <p>Already have an account? <a href="../account/login.html">Login here</a></p>
+        <p>Already have an account? <a href="../account/login.html" class="clickHere">Login here</a></p>
         </form>
     </section>
 </main>

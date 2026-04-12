@@ -27,6 +27,7 @@ main {
 h1 {
     font-size: clamp(1.8rem, 7vw + 1rem, 5rem);
     font-family: var(--main-font);
+    text-align: center;
 }
 
 h2 {
@@ -43,6 +44,23 @@ a, a:visited {
 p {
     font-family: var(--main-font);
     text-wrap: balance;
+}
+
+form {
+    display: flex;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: color-mix(in srgb, var(--color-copper), transparent 70%);
+    border-radius: 8px;
+    gap: 15px;
+    flex-direction: column;
+    font-family: var(--main-font)
+}
+
+form h2 {
+    text-align: center;
+    margin-top: 0;
 }
 
 .header {
@@ -283,6 +301,27 @@ footer {
     font-size: 4rem;
     color: var(--color-gold);
     margin-bottom: 1rem;
+}
+
+.ctaBNutton {
+    background-color: var(--color-copper);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.checkbox label {
+    cursor: pointer;
+}
+
+.clickHere {
+    font-weight: bold;
+    text-decoration: underline ;
+    font-style: italic;
 }
 
 @media (max-width: 599px) {
