@@ -52,11 +52,15 @@ form {
 form h2 {
     text-align: center;
     margin-top: 0;
-}¨
+}
 
 img {
     max-width: 100%;
     height: auto;
+}
+
+figure > img {
+    border-radius: 8px;
 }
 
 .header {
