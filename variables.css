@@ -37,3 +37,7 @@ hr.sectionDivider {
     margin: 40px 0;
     background-image: linear-gradient(to right, transparent, #333, transparent);
 }
+
+p {
+    font-family: var(--main-font);
+}

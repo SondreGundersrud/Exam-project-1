@@ -18,3 +18,4 @@ Asked Gemin to debug success/index.html in order to solve a floating footer, as 
 
 2026-04-18:
 Asked Gemin to debug my slide1.html to make the columns stay next to each other as well as being responsive to changes in screen sizes.
+Asked ChatGPT to debug my white space when reducing size from 800 to 600px. Problem was not having any rules for the part between 600 and 800px. This has been solved now.

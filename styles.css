@@ -1,9 +1,5 @@
 @import url('variables.css');
 
-/* .p {
-    text-wrap: balance;
-}  */
-
 html {
     font-size: 100%;
     scroll-behavior: smooth;
@@ -41,11 +37,6 @@ a, a:visited {
     color: inherit;
 }
 
-p {
-    font-family: var(--main-font);
-    text-wrap: balance;
-}
-
 form {
     display: flex;
     max-width: 400px;
@@ -61,6 +52,11 @@ form {
 form h2 {
     text-align: center;
     margin-top: 0;
+}¨
+
+img {
+    max-width: 100%;
+    height: auto;
 }
 
 .header {
@@ -122,10 +118,6 @@ footer {
     margin: 2rem auto;
     position: relative;
     padding: 0;
-}
-
-.carouselProduct > title {
-    text-align: left;
 }
 
 .carousel > ul {
@@ -213,9 +205,10 @@ footer {
 
 .productDetails {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    gap: 15px;
+    grid-template-columns: 1fr;
+    /* overflow: hidden; */
+    width: 100%;
+    max-width: 100%;
 }
 
 .productInformation {
@@ -224,6 +217,14 @@ footer {
     align-items: flex-start;
     padding: 20px;
     gap: 15px;
+}
+
+.productInformation p {
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    width: 100%;
+    display: block;
 }
 
 .reviews > h2 {
@@ -362,7 +363,7 @@ footer {
         flex-direction: column;
         align-items: center;
     }
-    
+
     .product-image {
         max-width: 100%;
     }
@@ -387,5 +388,59 @@ footer {
         height: 150px;
         object-position: center;
         object-fit: cover;
+    }
+
+    .productDetails {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+        align-items: center;
+    }
+
+    .productDetails figure img {
+        width: 100%;
+        max-width: 400px;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+    }
+}
+
+@media (min-width: 600px) and (max-width: 799px) {
+    .productDetails {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .productDetails figure {
+        margin: 0;
+    }
+
+    .productDetails figure img {
+        width: 100%;
+        max-width: 400px;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .productInformation {
+        width: 100%;
+        padding: 20px;
+    }
+}
+
+@media (min-width: 800px) {
+    .productDetails {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+
+    .productDetails figure img {
+        max-width: 100%;
+    }
+
+    .productInformation {
+        align-items: flex-start;
+        text-align: left;
     }
 }
