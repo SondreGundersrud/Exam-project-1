@@ -10,10 +10,15 @@
     <link rel="stylesheet" href="../styles.css">
     <title>Clair Collective | Carousel product</title>
 </head>
+<!-- Requirements: The Specific Product Page features more details about a specific product that was navigated to from the thumbnail of the Product Feed Page
+    User Stories:
+    As a user, I want to see a responsive layout showing the product's title, description, price, discounted price (if applicable), rating, reviews, and tags fetched from the API
+    As a user, I want each specific product page to have a "share" icon with a shareable URL (including a query string or hash parameter containing the product ID), so I can share the product with others easily
+    As the user, when logged in, I want an "Add to Cart" button on the product page, so I can add products to my shopping cart -->
 <body>
     <header class="header">
         <nav class="nav">
-            <div class="logo"><a href="../index.html"><img src="../assets/CC_logo_cropped.png" alt="Clair Collective Logo"></a></div>
+            <div class="logo"><a href="../index.html"><img src="../assets/CC_logo_cropped.png" alt="Clair Collective"></a></div>
             <ul>
                 <li><a href="../product/allProducts.html">All Products</a></li>
                 <li><a href="../account/login.html">Profile</a></li>
@@ -22,14 +27,31 @@
         </nav>
     </header>
     <main>
-        <h1>Black Headphones</h1>
-        <img src="https://static.noroff.dev/api/online-shop/5-headphones-black.jpg" class="productSlide1" alt="A set of wireless black headphones.">
-        <p>Experience high-quality sound with our wireless headphones, designed for comfort and style.</p>
-        <p>$259.99</p>
-        <a href="../views/checkout/index.html" class="ctaButton">Add to Cart</a>
+        <article class="carouselProduct">
+            <h1>Black Headphones</h1>
+            <section class="productDetails">
+                <figure>
+                <img src="https://static.noroff.dev/api/online-shop/5-headphones-black.jpg" class="productSlide1" alt="A set of wireless black headphones.">
+                </figure>
+                <div class="productInformation">
+                    <p>Experience high-quality sound with our wireless headphones, designed for comfort and style.</p>
+                    <p>$259.99</p>
+                    <a href="../cart/" class="ctaButton">Add to Cart</a>
+                </div>
+            </section>
+            <hr class="sectionDivider">
+            <section class="reviews">
+                <h2>Customer Reviews</h2>
+                <article class="review">
+                    <h3>John Doe</h3>
+                    <p>Rating:</p>
+                    <p>Comment:</p>
+                </article>
+            </section>
+        </article>
     </main>
     <footer>
-    <div class="logo"><a href="../index.html"><img src="../assets/CC_logo_cropped.png" alt="Clair Collective Logo"></a></div>
+    <div class="logo"><a href="../index.html"><img src="../assets/CC_logo_cropped.png" alt="Clair Collective"></a></div>
     <p>&copy; 2024 Clair Collective. All rights reserved.</p>
 </footer>
 </body>

@@ -30,7 +30,7 @@ h1 {
     text-align: center;
 }
 
-h2 {
+h2, h3 {
     font-family: var(--main-font);
     font-size: 1.5rem;
     font-weight: bold;
@@ -116,6 +116,18 @@ footer {
     padding: 0;
 }
 
+.carouselProduct {
+    width: clamp(3rem, 80%, 1150px);
+    height: auto;
+    margin: 2rem auto;
+    position: relative;
+    padding: 0;
+}
+
+.carouselProduct > title {
+    text-align: left;
+}
+
 .carousel > ul {
     margin: 0;
     padding: 0;
@@ -198,6 +210,27 @@ footer {
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     align-items: stretch;
 }
+
+.productDetails {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 15px;
+}
+
+.productInformation {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+    gap: 15px;
+}
+
+.reviews > h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+    
 
 .box {
     background: var(--color-copper);

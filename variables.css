@@ -30,3 +30,10 @@
     color: var(--color-lgrey);
     border-color: var(--color-dgrey);
 }
+
+hr.sectionDivider {
+    border: 0;
+    height: 2px;
+    margin: 40px 0;
+    background-image: linear-gradient(to right, transparent, #333, transparent);
+}

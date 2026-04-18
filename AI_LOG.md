@@ -15,3 +15,6 @@ Asked ChatGPT to debug my .carousel code as the View Product button disappears w
 
 2026-04-12:
 Asked Gemin to debug success/index.html in order to solve a floating footer, as well as correcting my connection to fontawesome in head, so the check mark icon would work.
+
+2026-04-18:
+Asked Gemin to debug my slide1.html to make the columns stay next to each other as well as being responsive to changes in screen sizes.
