@@ -95,8 +95,27 @@ figure > img {
     color: var(--color-gold);
     font-weight: 500;
     font-size: 1.25rem;
+    display: inline-block;
     font-family: var(--main-font);
+    position: relative;
 }
+
+.header nav ul a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: currentColor;
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.header nav ul a:is(:hover, :focus)::after {
+    width: 100%;
+}
+
 
 footer {
     background-color: var(--color-black);
@@ -360,6 +379,10 @@ footer {
     font-weight: bold;
     text-decoration: underline ;
     font-style: italic;
+}
+
+.checkbox label input {
+    accent-color: var(--color-copper);
 }
 
 @media (max-width: 599px) {
