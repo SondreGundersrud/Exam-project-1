@@ -2,8 +2,6 @@
 
 const container = document.querySelector("#container");
 const API_URL = "https://v2.api.noroff.dev/online-shop";
-
-const genderSelect = document.querySelector("#gender");
 const categorySelect = document.querySelector("#category");
 
 let allProducts = [];
@@ -13,9 +11,8 @@ try {
     const response = await fetch(API_URL);
     const data = await response.json();
     allProducts = Array.isArray(data?.data) ? data.data : data;
-
+    const previewProducts = allProducts;
     render(allProducts);
-    genderSelect.addEventListener("change", applyFilters);
     categorySelect.addEventListener("change", applyFilters);
 } catch (error) {
     container.textContent = "Could not load products at this time.";
@@ -55,29 +52,24 @@ function render(list) {
 }
 
 function applyFilters() {
-  const g = genderSelect.value.toLowerCase();
   const c = categorySelect.value.toLowerCase();
   const norm = (v) => (v ?? "").toString().toLowerCase();
 
   const filtered = allProducts.filter((p) => {
-    const gender = norm(p.gender);
     const category = norm(p.category);
     const tags = Array.isArray(p.tags) ? p.tags.map(norm) : [];
-
-    const genderMatch =
-      g === "all" ||
-      gender === g ||
-      (g === "unisex" && (gender === "" || gender === "unisex"));
-
     const categoryMatch =
       c === "all" ||
       category === c ||
       tags.includes(c); 
 
-    return genderMatch && categoryMatch;
-  });
+    return categoryMatch;
+  });}
 
-  render(filtered.length ? filtered : allProducts); 
+if (filtered.length > 0) {
+    render(filtered);
+} else {
+    container.innerHTML = "<p>No products found for the selected category.</p>";
 }
 
 window.Cart?.updateCartCount?.();
