@@ -6,6 +6,8 @@
     <meta name="description" content="Clair Collective is the number one destination for premium fashion and lifestyle products.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- <link href="https://fontawesome.com/icons/eye?f=classic&s=solid" crossorigin>
+    <link href="https://fontawesome.com/icons/eye-slash?f=classic&s=solid" crossorigin> -->
     <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../styles.css">
     <title>Clair Collective | Home</title>
@@ -36,10 +38,15 @@ User Stories: As a user, I want a validated login form that allows me to request
             </div>
             <div>
                 <label for="password">Password:</label>
-                <input type="password" placeholder="Password" name="password" required>
+                <input type="password" placeholder="Password" id="pswInput" name="password" required>
             </div>
             <div class="checkbox">
-                <label><input type="checkbox" id="remember" name="remember">Remember me</label>
+                <label for="show-password">
+                    <input type="checkbox" id="show-password" onclick="togglePassword()">Show Password
+                </label>
+                <label for="remember">
+                    <input type="checkbox" id="remember" name="remember">Remember me
+                </label>
             </div>
             <button type="submit" class="ctaButton">Login</button>
             <p><a href="../account/forgotPassword.html">Forgot your password?</a></p>
@@ -52,5 +59,6 @@ User Stories: As a user, I want a validated login form that allows me to request
     <div class="logo"><a href="../index.html"><img src="../assets/CC_logo_cropped.png" alt="Clair Collective"></a></div>
     <p>&copy; 2024 Clair Collective. All rights reserved.</p>
 </footer>
+<script src="/account/login.js" defer></script>
 </body>
 </html>
