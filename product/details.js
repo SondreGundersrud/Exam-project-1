@@ -61,7 +61,7 @@ async function fetchAPIProducts() {
 
     infoDiv.append(title, description, price, backButton, buyButton);
     productDiv.append(image, infoDiv);
-    container.appendChild(productDiv);
+    detailedContainer.appendChild(productDiv);
     } catch (error) {
     console.error("Error while fetching product:", error);
     }
