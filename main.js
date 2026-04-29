@@ -49,6 +49,22 @@ function render(list) {
   });
 }
 
+// Scroll to top button functionality taken from https://www.w3schools.com/howto/howto_js_scroll_to_top.asp and modified to fit the project.
+let topButton = document.getElementById("toTopBtn");
+window.onscroll = function() {scrollFunction()};
+function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        topButton.style.display = "block";
+    } else {
+        topButton.style.display = "none";
+    }
+}
+
+function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+}
+
 window.Cart?.updateCartCount?.();
 
 fetchAPIProducts();
