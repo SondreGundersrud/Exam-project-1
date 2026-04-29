@@ -11,15 +11,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../styles.css">
     <title>Clair Collective | All products</title>
-    <!-- 
-REQUIREMENTS: The Product Feed Page must include a carousel and a list of at least 12 products.
-User Stories:
-As a user, I want to see an interactive banner carousel on the product feed page, so that I can view a rotation of three products
-As a user, I want to click on the previous or next button in the carousel to animate and reveal another product, to ensure I can see different products easily
-As a user, I want the carousel to return to the first product after reaching the end of the list, and vice versa when clicking previous on the first product
-As a user, I want to click on a button for each carousel item, which will take me to the product page, where I can view more details
-As a user, I want to view a list of the 12 products in a responsive thumbnail grid on the product feed page, so I can easily select which product to view
-As a user, I want each thumbnail image in the product feed to be clickable, taking me to the product page to see more details about that specific product -->
 </head>
 <body>
 <header class="header">
@@ -34,32 +25,42 @@ As a user, I want each thumbnail image in the product feed to be clickable, taki
 </header>
 <main>
     <section>
+        <h1>All Products</h1>
         <div class="filter-group">
-        <label for="category">Category:</label>
-        <select id="category">
-            <option value="all">All</option>
-            <option value="accessories">Accessories</option>
-            <option value="audio">Audio</option>
-            <option value="bags">Bags</option>
-            <option value="beauty">Beauty</option>
-            <option value="computers">Computers</option>
-            <option value="electronics">Electronics</option>
-            <option value="fashion">Fashion</option>
-            <option value="gaming">Gaming</option>
-            <option value="glasses">Glasses</option>
-            <option value="headphones">Headphones</option>
-            <option value="jewelry">Jewelry</option>
-            <option value="perfume">Perfume</option>
-            <option value="peripherals">Peripherals</option>
-            <option value="shampoo">Shampoo</option>
-            <option value="shoes">Shoes</option>
-            <option value="skincare">Skin Care</option>
-            <option value="storage">Storage</option>
-            <option value="toy">Toy</option>
-            <option value="watch">Watch</option>
-            <option value="watches">Watches</option>
-            <option value="wearables">Wearables</option>
-        </select>
+            <label for="category" class="category">Category:</label>
+            <select id="category">
+                <option value="all">All Categories</option>
+                <optgroup label="Technology & Electronics">
+                    <option value="audio">Audio</option>
+                    <option value="computers">Computers</option>
+                    <option value="electronics">Electronics</option>
+                    <option value="gaming">Gaming</option>
+                    <option value="headphones">Headphones</option>
+                    <option value="peripherals">Peripherals</option>
+                    <option value="storage">Storage</option>
+                    <option value="wearables">Wearables</option>
+                </optgroup>
+                <optgroup label="Fashion & Style">
+                    <option value="accessories">Accessories</option>
+                    <option value="bags">Bags</option>
+                    <option value="fashion">Fashion</option>
+                    <option value="glasses">Glasses</option>
+                    <option value="jewelry">Jewelry</option>
+                    <option value="shoes">Shoes</option>
+                    <option value="watch">Watch</option>
+                    <option value="watch">Watches</option>
+                </optgroup>
+                <optgroup label="Beauty & Personal Care">
+                    <option value="beauty">Beauty</option>
+                    <option value="perfume">Perfume</option>
+                    <option value="shampoo">Shampoo</option>
+                    <option value="skincare">Skin Care</option>
+                </optgroup>
+                <optgroup label="Other">
+                    <option value="toy">Toy</option>
+                </optgroup>
+            </select>
+        </div>
         <div id="container" class="container"></div>
     </section>
 </main>
