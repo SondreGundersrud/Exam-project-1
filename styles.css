@@ -360,7 +360,7 @@ footer {
     margin-bottom: 1rem;
 }
 
-.ctaBNutton {
+/* .ctaButton {
     background-color: var(--color-gold);
     color: #fff;
     border: none;
@@ -369,7 +369,7 @@ footer {
     cursor: pointer;
     border-radius: 4px;
     transition: background-color 0.3s ease;
-}
+} */
 
 .clickHere {
     font-weight: bold;

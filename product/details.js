@@ -40,6 +40,7 @@ async function fetchAPIProducts() {
     price.textContent = `$ ${product.price.toLocaleString("en-US", { minimumFractionDigits: 2 })}`;
 
     const buyButton = document.createElement("button");
+    buyButton.className = "ctaButton";
     buyButton.textContent = "Add to Cart";
     buyButton.addEventListener("click", () => {
         if (!window.Cart) return console.error("Cart not available");
@@ -54,8 +55,7 @@ async function fetchAPIProducts() {
     });
 
     const backButton = document.createElement("button");
-    // backButton.className = ('ctaButton');
-    backButton.className = "back-button";
+    backButton.className = "ctaButton";
     backButton.textContent = "← Back to products";
     backButton.addEventListener("click", () => history.back());
 
@@ -66,6 +66,7 @@ async function fetchAPIProducts() {
     console.error("Error while fetching product:", error);
     }
 }
+
 // Scroll to top button functionality taken from https://www.w3schools.com/howto/howto_js_scroll_to_top.asp and modified to fit the project.
 let topButton = document.getElementById("toTopBtn");
 window.onscroll = function() {scrollFunction()};
