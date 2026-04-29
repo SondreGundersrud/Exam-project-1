@@ -19,3 +19,6 @@ Asked Gemin to debug success/index.html in order to solve a floating footer, as 
 2026-04-18:
 Asked Gemin to debug my slide1.html to make the columns stay next to each other as well as being responsive to changes in screen sizes.
 Asked ChatGPT to debug my white space when reducing size from 800 to 600px. Problem was not having any rules for the part between 600 and 800px. This has been solved now.
+
+2026-04-29:
+Asked Gemni to debug my allProducts.js file, as it was not showing the content. Turns out I had misplaced a "}", and it was applying filters but not showing it. It also explained to me that my file path was wrong and that my code was looking for a "product" map inside my product map.

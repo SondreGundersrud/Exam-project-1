@@ -40,7 +40,7 @@ function render(list) {
     image.alt = product?.image?.alt ?? product?.title ?? "product";
     title.textContent = product.title;
     price.textContent = `$ ${Number(product.price).toLocaleString("en-US", { minimumFractionDigits: 2 })}`;
-    link.href = `./Views/product/index.html?id=${product.id}`;
+    link.href = `index.html?id=${product.id}`;
 
     content.appendChild(title);
     content.appendChild(price);
@@ -64,12 +64,13 @@ function applyFilters() {
       tags.includes(c); 
 
     return categoryMatch;
-  });}
+  });
 
-if (filtered.length > 0) {
-    render(filtered);
-} else {
-    container.innerHTML = "<p>No products found for the selected category.</p>";
+  if (filtered.length > 0) {
+      render(filtered);
+  } else {
+      container.innerHTML = "<p>No products found for the selected category.</p>";
+  }
 }
 
 window.Cart?.updateCartCount?.();
