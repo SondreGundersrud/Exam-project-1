@@ -407,17 +407,115 @@ footer {
     cursor: pointer;
 }
 
+/* Code for hamburger menu was taken from https://www.youtube.com/watch?v=aNDqzlAKmZc and modified to fit the project. Link to the GitHub repo: https://github.com/treehouse/ham-menu . Accessed 30.04.2026. */
+.navLinks {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
 
+.off-screen-menu {
+    background-color: var(--color-dgrey);
+    color: var(--color-gold);
+    height: 100vh;
+    width: 70%;
+    z-index: 1000;
+    max-width: 450px;
+    position: fixed;
+    top: 0;
+    right: -1500px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;    
+    justify-content: center;
+    text-align: left;
+    padding-left: 2rem;
+    font-size: 3rem;
+    transition: .3s ease;
+}
+
+.off-screen-menu li {
+    text-decoration: none;
+    color: var(--color-gold);
+    font-weight: 500;
+    font-size: 3rem;
+    display: table-row;
+    list-style: none;
+    font-family: var(--main-font);
+    position: relative;
+}
+
+.off-screen-menu.active {
+    right: 0;
+}
+
+.ham-menu {
+    display: none;
+    height: 50px;
+    width: 40px;
+    margin-left: 0;
+    position: relative;
+}
+
+.ham-menu span {
+    height: 5px;
+    width: 100%;
+    background-color: var(--color-gold);
+    border-radius: 25px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: .3s ease;
+}
+
+.ham-menu span:nth-child(1) {
+    top: 25%;
+}
+
+.ham-menu span:nth-child(3) {
+    top: 75%;
+}
+
+.ham-menu.active {
+    z-index: 1010;
+}
+
+.ham-menu.active span {
+    background-color: var(--color-gold);
+}
+
+.ham-menu.active span:nth-child(1) {
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.ham-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.ham-menu.active span:nth-child(3) {
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
 
 @media (max-width: 599px) {
 
     .navLinks {
-        display: none;
+        display: none !important;
     }
 
     .ham-menu {
         display: block;
         cursor: pointer;
+        margin-left: auto;
+    }
+
+    .header nav {
+        justify-content: space-between;
+        width: 100%;
+        box-sizing: border-box
+        ;
     }
 
     .off-screen-menu {
@@ -471,7 +569,14 @@ footer {
     }
 }
 
+@media (min-width: 600px) {
+    .off-screen-menu.active {
+        display: none;
+    }
+}
+
 @media (min-width: 600px) and (max-width: 799px) {
+    
     .productDetails {
         grid-template-columns: 1fr;
         gap: 20px;

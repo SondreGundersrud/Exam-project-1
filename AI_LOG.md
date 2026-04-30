@@ -22,3 +22,6 @@ Asked ChatGPT to debug my white space when reducing size from 800 to 600px. Prob
 
 2026-04-29:
 Asked Gemni to debug my allProducts.js file, as it was not showing the content. Turns out I had misplaced a "}", and it was applying filters but not showing it. It also explained to me that my file path was wrong and that my code was looking for a "product" map inside my product map.
+
+2026-04-30:
+Asked Gemini to debug my code that I had adopted from a video. The video was giving instructions on how to make a phone menu, and for some reason the desktop navigation bar was overlapping the phone menu. The changes was mainly correcting my current values e.g. "display: none;" vs. "display: none !important" etc. Furthermore, the hamburger menu would show / not show at different sizes, and it helped me point out that I had not made a rule for it to only show once under 600px, and disapper once it's over 600px. This rule also had to be active despite the menu's active state (open/closed).

@@ -17,13 +17,26 @@ As a user, I want a "Complete Purchase" button that submits my order and takes m
 </head>
 <body>
 <header class="header">
-    <nav class="nav">
-        <div class="logo"><a href="../index.html"><img src="../assets/CC_logo_cropped.png" alt="Clair Collective"></a></div>
+    <div class="off-screen-menu">
+        <!-- Code for hamburger menu was taken from https://www.youtube.com/watch?v=aNDqzlAKmZc and modified to fit the project. Link to the GitHub repo: https://github.com/treehouse/ham-menu . Accessed 30.04.2026. -->
         <ul>
             <li><a href="../product/allProducts.html">All Products</a></li>
             <li><a href="../account/login.html">Profile</a></li>
             <li><a href="../cart/index.html">Cart (<span id="cart-count">0</span>)</a></li>
         </ul>
+    </div>
+    <nav class="nav">
+        <div class="logo"><a href="../index.html"><img src="../assets/CC_logo_cropped.png" alt="Clair Collective"></a></div>
+        <ul class="navLinks">
+            <li><a href="./product/allProducts.html">All Products</a></li>
+            <li><a href="./account/login.html">Profile</a></li>
+            <li><a href="./cart/index.html">Cart (<span id="cart-count">0</span>)</a></li>
+        </ul>
+        <div class="ham-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
     </nav>
 </header>
 <main>
@@ -39,5 +52,6 @@ As a user, I want a "Complete Purchase" button that submits my order and takes m
     <div class="logo"><a href="../index.html"><img src="../assets/CC_logo_cropped.png" alt="Clair Collective"></a></div>
     <p>&copy; 2024 Clair Collective. All rights reserved.</p>
 </footer>
+<script src="../phone.js"></script>
 </body>
 </html>
