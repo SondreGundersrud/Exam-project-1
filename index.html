@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="styles.css">
     <script src="carousel.js" defer></script>
     <title>Clair Collective | Home</title>
@@ -22,13 +23,25 @@ User Stories:
 ✅As a user, I want each thumbnail image in the product feed to be clickable, taking me to the product page to see more details about that specific product -->
 <body>
 <header class="header">
-    <nav class="nav">
-        <div class="logo"><a href="index.html"><img src="./assets/CC_logo_cropped.png" alt="Clair Collective"></a></div>
+    <div class="off-screen-menu">
         <ul>
             <li><a href="./product/allProducts.html">All Products</a></li>
             <li><a href="./account/login.html">Profile</a></li>
             <li><a href="./cart/index.html">Cart (<span id="cart-count">0</span>)</a></li>
         </ul>
+    </div>
+    <nav class="nav">
+        <div class="logo"><a href="index.html"><img src="./assets/CC_logo_cropped.png" alt="Clair Collective"></a></div>
+        <ul class="navLinks">
+            <li><a href="./product/allProducts.html">All Products</a></li>
+            <li><a href="./account/login.html">Profile</a></li>
+            <li><a href="./cart/index.html">Cart (<span id="cart-count">0</span>)</a></li>
+        </ul>
+        <div class="ham-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
     </nav>
 </header>
 <main>
@@ -77,12 +90,13 @@ User Stories:
         <div id="container" class="container"></div>
     </section>
     <button onclick="topFunction()" id="toTopBtn" title="Go to top">Top</button>
-        <!-- To Top button is taken from this website: https://www.w3schools.com/howto/howto_js_scroll_to_top.asp -->
+        <!-- To Top button is taken from this website: https://www.w3schools.com/howto/howto_js_scroll_to_top.asp Accessed 29.04.2026 -->
 </main>
 <footer>
     <div class="logo"><a href="index.html"><img src="./assets/CC_logo_cropped.png" alt="Clair Collective"></a></div>
     <p>&copy; 2024 Clair Collective. All rights reserved.</p>
 </footer>
 <script src="main.js"></script>
+<script src="phone.js"></script>
 </body>
 </html>

@@ -15,38 +15,38 @@ try {
 } catch (error) {
     container.textContent = "Could not load products at this time.";
     console.error("Error while fetching products:", error.message);
-  }
+    }
 }
 
 function render(list) {
-  container.innerHTML = "";
-  list.forEach((product) => {
-    const box = document.createElement("div");
-    const image = document.createElement("img");
-    const content = document.createElement("div");
-    const title = document.createElement("h2");
-    const price = document.createElement("p");
-    const link = document.createElement("a");
+    container.innerHTML = "";
+    list.forEach((product) => {
+        const box = document.createElement("div");
+        const image = document.createElement("img");
+        const content = document.createElement("div");
+        const title = document.createElement("h2");
+        const price = document.createElement("p");
+        const link = document.createElement("a");
 
-    box.className = "box";
-    image.className = "box-image";
-    content.className = "box-content";
-    title.className = "box-title";
-    price.className = "box-price";
+        box.className = "box";
+        image.className = "box-image";
+        content.className = "box-content";
+        title.className = "box-title";
+        price.className = "box-price";
 
-    image.src = product?.image?.url ?? product?.images?.[0]?.url ?? "";
-    image.alt = product?.image?.alt ?? product?.title ?? "product";
-    title.textContent = product.title;
-    price.textContent = `$ ${Number(product.price).toLocaleString("en-US", { minimumFractionDigits: 2 })}`;
-    link.href = `./product/index.html?id=${product.id}`;
+        image.src = product?.image?.url ?? product?.images?.[0]?.url ?? "";
+        image.alt = product?.image?.alt ?? product?.title ?? "product";
+        title.textContent = product.title;
+        price.textContent = `$ ${Number(product.price).toLocaleString("en-US", { minimumFractionDigits: 2 })}`;
+        link.href = `./product/index.html?id=${product.id}`;
 
-    content.appendChild(title);
-    content.appendChild(price);
-    box.appendChild(image);
-    box.appendChild(content);
-    link.appendChild(box);
-    container.appendChild(link);
-  });
+        content.appendChild(title);
+        content.appendChild(price);
+        box.appendChild(image);
+        box.appendChild(content);
+        link.appendChild(box);
+        container.appendChild(link);
+    });
 }
 
 // Scroll to top button functionality taken from https://www.w3schools.com/howto/howto_js_scroll_to_top.asp and modified to fit the project.

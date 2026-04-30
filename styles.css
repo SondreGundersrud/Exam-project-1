@@ -407,7 +407,23 @@ footer {
     cursor: pointer;
 }
 
+
+
 @media (max-width: 599px) {
+
+    .navLinks {
+        display: none;
+    }
+
+    .ham-menu {
+        display: block;
+        cursor: pointer;
+    }
+
+    .off-screen-menu {
+        font-size: 1.25rem;
+    }
+
     .product-details {
         flex-direction: column;
         align-items: center;
