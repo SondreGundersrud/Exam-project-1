@@ -35,10 +35,14 @@ async function fetchAPIProducts() {
     description.className = "product-description";
     description.textContent = product.description;
 
+    const discountedPrice = document.createElement("p");
+    discountedPrice.className = "product-discounted-price";
+    discountedPrice.textContent = `$ ${product.discountedPrice?.toLocaleString("en-US", { minimumFractionDigits: 2 })}`;
+
     const price = document.createElement("p");
     price.className = "product-price";
     price.textContent = `$ ${product.price.toLocaleString("en-US", { minimumFractionDigits: 2 })}`;
-
+    
     const buyButton = document.createElement("button");
     buyButton.className = "ctaButton";
     buyButton.textContent = "Add to Cart";
@@ -65,6 +69,19 @@ async function fetchAPIProducts() {
     } catch (error) {
     console.error("Error while fetching product:", error);
     }
+}
+
+
+function showReviews(reviews) {
+    reviews.forEach(function(review) {
+        console.log(review.username);
+        console.log(review.rating);
+        console.log(review.comment);
+        const reviewList = document.querySelector(".product-reviews ul");
+        if (product.reviews.length === 0) {
+            reviewList.innerHTML = "<p>No reviews yet.</p>";
+        }
+    });
 }
 
 // Scroll to top button functionality taken from https://www.w3schools.com/howto/howto_js_scroll_to_top.asp and modified to fit the project.
