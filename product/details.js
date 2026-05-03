@@ -1,6 +1,6 @@
 // Code taken from my js assignment, https://github.com/SondreGundersrud/sondregundersrud.github.io/blob/main/js/pages/product.js and modified to fit the project.
 
-const container = document.querySelector("#container")
+const container = document.querySelector("#detailedContainer")
 const API_URL = "https://v2.api.noroff.dev/online-shop"
 
 async function fetchAPIProducts() {
@@ -36,7 +36,7 @@ async function fetchAPIProducts() {
     description.textContent = product.description;
 
     const discountedPrice = document.createElement("p");
-    discountedPrice.className = "product-discounted-price";
+    discountedPrice.className = "discountedPrice";
     discountedPrice.textContent = `$ ${product.discountedPrice?.toLocaleString("en-US", { minimumFractionDigits: 2 })}`;
 
     const price = document.createElement("p");
@@ -66,25 +66,41 @@ async function fetchAPIProducts() {
     infoDiv.append(title, description, price, backButton, buyButton);
     productDiv.append(image, infoDiv);
     detailedContainer.appendChild(productDiv);
+    await showReviews(product.reviews);
     } catch (error) {
     console.error("Error while fetching product:", error);
     }
 }
 
-
 function showReviews(reviews) {
+    const reviewList = document.querySelector("#reviewList");
+    if (!reviews || reviews.length === 0) {
+        reviewList.innerHTML = "<p>No reviews yet.</p>";
+        return;
+    }
+    
     reviews.forEach(function(review) {
-        console.log(review.username);
-        console.log(review.rating);
-        console.log(review.comment);
-        const reviewList = document.querySelector(".product-reviews ul");
-        if (product.reviews.length === 0) {
-            reviewList.innerHTML = "<p>No reviews yet.</p>";
-        }
+    const li = document.createElement("li");
+    li.className = "review-item";
+    li.innerHTML = `<h3>${review.username}</h3>
+                    <p>Rating: ${review.rating} / 5</p>
+                    <p>"${review.description}"</p>`;
+    reviewList.appendChild(li);
     });
 }
 
-// Scroll to top button functionality taken from https://www.w3schools.com/howto/howto_js_scroll_to_top.asp and modified to fit the project.
+async function shareProduct() {
+    const shareUrl = window.location.href;
+    try {         
+        await navigator.clipboard.writeText(shareUrl);
+        alert("Copied the URL: " + shareUrl);
+    } catch (error) {
+        console.error("Error copying URL to clipboard:", error);
+        alert("Failed to copy URL. Please try copying manually: " + shareUrl);
+    }
+}
+
+// Scroll to top button functionality taken from https://www.w3schools.com/howto/howto_js_scroll_to_top.asp and modified to fit the project, accessed on 29.04.2026.
 let topButton = document.getElementById("toTopBtn");
 window.onscroll = function() {scrollFunction()};
 function scrollFunction() {

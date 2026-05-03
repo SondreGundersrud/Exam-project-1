@@ -25,3 +25,8 @@ Asked Gemni to debug my allProducts.js file, as it was not showing the content. 
 
 2026-04-30:
 Asked Gemini to debug my code that I had adopted from a video. The video was giving instructions on how to make a phone menu, and for some reason the desktop navigation bar was overlapping the phone menu. The changes was mainly correcting my current values e.g. "display: none;" vs. "display: none !important" etc. Furthermore, the hamburger menu would show / not show at different sizes, and it helped me point out that I had not made a rule for it to only show once under 600px, and disapper once it's over 600px. This rule also had to be active despite the menu's active state (open/closed).
+
+2026-05-04:
+Asked Gemini to debug my code for calling in reviews on spesfic product page. I had tried to do an async function, mistakenly added "product" to the showReview, but is only inside the fetchAPIProducts. My variables username, rating etc. was not defined. Lasly was my syntax catch (error) with a curly bracelet without an attached "try".
+
+Asked ChatGPT to debug and explain why my share product button didn't work, despite it seemingly working on w3school (https://www.w3schools.com/howto/howto_js_copy_clipboard.asp) It turns out I was first of all putting the function inside the fetchAPIProducts which is wrong place. I was refering to a wrong element/id. Here I learned that window.location.href is the url bar. this was the one thing I needed to target. The .selsect() was not needed as it is used for input fields.

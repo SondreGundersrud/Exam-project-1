@@ -254,7 +254,26 @@ footer {
     text-align: center;
     margin-bottom: 2rem;
 }
-    
+
+.customerReviews {
+    display : grid;
+    align-items: center;
+}
+
+.customerReviews > h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.customerReviews ul {
+    list-style: none;
+    margin: auto;
+    padding: 20px;
+    display: grid;
+    position: relative;
+    justify-content: left;
+    gap: 20px;
+}
 
 .box {
     background: var(--color-copper);
@@ -359,17 +378,6 @@ footer {
     color: var(--color-gold);
     margin-bottom: 1rem;
 }
-
-/* .ctaButton {
-    background-color: var(--color-gold);
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    font-size: 1.1rem;
-    cursor: pointer;
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
-} */
 
 .clickHere {
     font-weight: bold;
