@@ -35,7 +35,7 @@ async function fetchAPIProducts() {
     description.className = "product-description";
     description.textContent = product.description;
 
-    const discountedPrice = document.createElement("p");
+    const discountedPrice = document.createElement("h3");
     discountedPrice.className = "discountedPrice";
     discountedPrice.textContent = `$ ${product.discountedPrice?.toLocaleString("en-US", { minimumFractionDigits: 2 })}`;
 
@@ -63,7 +63,13 @@ async function fetchAPIProducts() {
     backButton.textContent = "← Back to products";
     backButton.addEventListener("click", () => history.back());
 
-    infoDiv.append(title, description, price, backButton, buyButton);
+    if (product.discountedPrice < product.price) {
+        price.style.textDecoration = "line-through";
+        infoDiv.append(title, description, price, discountedPrice, backButton, buyButton);
+    } else {
+        infoDiv.append(title, description, price, backButton, buyButton);
+    }
+
     productDiv.append(image, infoDiv);
     detailedContainer.appendChild(productDiv);
     await showReviews(product.reviews);
