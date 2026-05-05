@@ -43,8 +43,8 @@ User Stories: As a user, I want a validated login form that allows me to request
         <form id="login-form" action="/auth/login" method="POST">
             <h2>Login</h2>
             <div>
-                <label for="email">Email:</label>
-                <input type="email" placeholder="Email" id="email" name="email" required>
+                <label for="username">Username:</label>
+                <input type="text" placeholder="Username" id="username" name="username" required>
             </div>
             <div>
                 <label for="password">Password:</label>
@@ -68,7 +68,7 @@ User Stories: As a user, I want a validated login form that allows me to request
     <div class="logo"><a href="../index.html"><img src="../assets/CC_logo_cropped.png" alt="Clair Collective"></a></div>
     <p>&copy; 2024 Clair Collective. All rights reserved.</p>
 </footer>
-<script src="/account/login.js" defer></script>
+<script type="module" src="./account.js"></script>
 <script src="../phone.js"></script>
 </body>
 </html>

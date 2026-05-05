@@ -33,3 +33,6 @@ Asked ChatGPT to debug and explain why my share product button didn't work, desp
 
 2026-05-04:
 Asked Gemini to debug my code and explain why my discounted code wouldn't show. It appears that I had left out "discountedPrice" from the infoDiv.append line. Furhter more, after adding it, I still had issues figuring out why the screen went blank, and I was told it's because the if statement was put before the const regarding price. Learned from this that the if statements should be put close to the bottom of the code before the catch error part.
+
+2026-05-05:
+Asked Gemini to debug my code. My show/not show password funtion had been disabled after I had added the (type="module") to the script element after watching a video from Noroff (https://vimeo.com/1051560989/dfc05f8194) and I wasn't aware that this would limit the function to a private page, instead of globally allowing it to function. This is also the reason for changing the onClick funtion in the HTML. I had also gone back and forth adding slashes and dots to the script because I was thrown off by the error, which made it worse. I was also missing a console.error(error) in the catch line.
