@@ -44,7 +44,7 @@ async function fetchAPIProducts() {
     price.textContent = `$ ${product.price.toLocaleString("en-US", { minimumFractionDigits: 2 })}`;
     
     const buyButton = document.createElement("button");
-    buyButton.className = "ctaButton";
+    buyButton.className = "+= ctaButton putInCart";
     buyButton.textContent = "Add to Cart";
     buyButton.addEventListener("click", () => {
         if (!window.Cart) return console.error("Cart not available");
@@ -55,7 +55,7 @@ async function fetchAPIProducts() {
         image: product?.image?.url ?? product?.images?.[0]?.url ?? ""
         });
     buyButton.textContent = "Added to cart!";
-    setTimeout(() => (buyButton.textContent = "Add to Cart"), 3000);
+    setTimeout(() => (buyButton.textContent = "Add to Cart"), 2000);
     });
 
     const backButton = document.createElement("button");

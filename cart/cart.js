@@ -37,14 +37,17 @@
         localStorage.setItem("lastOrder", JSON.stringify(order));
         saveCart([]);
         updateCartCount();
-        location.href = `./cart/index.html?id=${encodeURIComponent(orderId)}`;
+        location.href = `../cart/index.html?id=${encodeURIComponent(orderId)}`;
     }
 
     function updateCartCount() {
-        const el = document.querySelector("#cart-count");
-        if (!el) return;
-        el.textContent = getCart().reduce((s,x)=>s+x.qty,0);
-    }
+        const elements = document.querySelectorAll(".cart-count");
+        const count = getCart().reduce((s, x) => s + x.qty, 0);
+    
+        elements.forEach(el => {
+            el.textContent = count;
+        });
+}
 
     window.Cart = { getCart, saveCart, addToCart, removeFromCart, getTotals, placeOrder, updateCartCount };
     console.log("Cart ready:", !!window.Cart);

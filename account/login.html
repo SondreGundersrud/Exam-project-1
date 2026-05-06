@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../styles.css">
+    <script src="../cart/cart.js" defer></script>
     <title>Clair Collective | Home</title>
     <!-- Method: POST /auth/login
 Path: /account/login.html
@@ -20,7 +21,7 @@ User Stories: As a user, I want a validated login form that allows me to request
         <ul>
             <li><a href="../product/allProducts.html">All Products</a></li>
             <li><a href="../account/login.html">Profile</a></li>
-            <li><a href="../cart/index.html">Cart (<span id="cart-count">0</span>)</a></li>
+            <li><a href="../cart/index.html">Cart (<span class="cart-count">0</span>)</a></li>
         </ul>
     </div>
     <nav class="nav">
@@ -28,7 +29,7 @@ User Stories: As a user, I want a validated login form that allows me to request
         <ul class="navLinks">
             <li><a href="../product/allProducts.html">All Products</a></li>
             <li><a href="../account/login.html">Profile</a></li>
-            <li><a href="../cart/index.html">Cart (<span id="cart-count">0</span>)</a></li>
+            <li><a href="../cart/index.html">Cart (<span class="cart-count">0</span>)</a></li>
         </ul>
         <div class="ham-menu">
             <span></span>
@@ -43,8 +44,8 @@ User Stories: As a user, I want a validated login form that allows me to request
         <form id="login-form" action="/auth/login" method="POST">
             <h2>Login</h2>
             <div>
-                <label for="username">Username:</label>
-                <input type="text" placeholder="Username" id="username" name="username" required>
+                <label for="email">Email:</label>
+                <input type="text" placeholder="Example@Email.com" id="email" name="email" required>
             </div>
             <div>
                 <label for="password">Password:</label>
@@ -52,7 +53,7 @@ User Stories: As a user, I want a validated login form that allows me to request
             </div>
             <div class="checkbox">
                 <label for="show-password">
-                    <input type="checkbox" id="show-password" onclick="togglePassword()">Show Password
+                    <input type="checkbox" id="show-password">Show Password
                 </label>
                 <label for="remember">
                     <input type="checkbox" id="remember" name="remember">Remember me

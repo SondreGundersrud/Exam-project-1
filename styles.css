@@ -367,6 +367,38 @@ footer {
     font-weight: bold;
     margin-bottom: 20px;
 }
+.cart-row { 
+    display:flex;
+    align-items:center;
+    gap:10px; padding:8px 0;
+    border-bottom:1px solid #eee;
+}
+
+.cart-thumb {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+#cart-list img {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+}
+
+.cart-title {
+    flex:1;
+}
+
+.cart-price {
+    width:120px;
+    text-align:right;
+}
+
+.cart-qty {
+    width:70px;
+}
 
 .successfulOrder {
     text-align: center;

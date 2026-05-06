@@ -13,8 +13,54 @@ if (checkbox) {
     checkbox.addEventListener("change", togglePassword);
 }
 
-/* Set logged-in status */
-navigator.login.setStatus("logged-in");
-/* Set logged-out status */
-navigator.login.setStatus("logged-out");
-//code is taken from https://mollify.noroff.dev/content/feu1/javascript-1/module-4/managing-web-forms?nav=course (Module 4, Managing web Forms with JavaScript) and modified to fit the project.
+const loginForm = document.querySelector("#login-form");
+const BASE_API_URL = 'https://v2.api.noroff.dev';
+const AUTH_LOGIN_URL = `${BASE_API_URL}/auth/login`;
+
+async function loginUser(url, data) {
+    try {
+        const postData = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        };
+        const response = await fetch(url, postData);
+        const json = await response.json();
+        const accessToken = json.data.accessToken;
+        localStorage.setItem('accessToken', accessToken);
+        return json;
+    } catch (error) {
+        console.error(error)
+    }
+}
+
+async function fetchWithToken(url) {
+    try {
+        const token = localStorage.getItem('accessToken');
+        const getData = {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`,
+            },
+        };
+        const response = await fetch(url, getData);
+        const json = await response.json();
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+function onLoginFormSubmit(event) {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const formFields = Object.fromEntries(formData);
+    loginUser(AUTH_LOGIN_URL, formFields);
+    window.location.replace('../index.html');
+    alert
+    console.log(loginUser)
+}
+
+loginForm.addEventListener("submit", onLoginFormSubmit);

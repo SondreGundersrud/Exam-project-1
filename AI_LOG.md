@@ -36,3 +36,7 @@ Asked Gemini to debug my code and explain why my discounted code wouldn't show. 
 
 2026-05-05:
 Asked Gemini to debug my code. My show/not show password funtion had been disabled after I had added the (type="module") to the script element after watching a video from Noroff (https://vimeo.com/1051560989/dfc05f8194) and I wasn't aware that this would limit the function to a private page, instead of globally allowing it to function. This is also the reason for changing the onClick funtion in the HTML. I had also gone back and forth adding slashes and dots to the script because I was thrown off by the error, which made it worse. I was also missing a console.error(error) in the catch line.
+
+2026-05-06:
+Asked both Gemini and ChatGPT to debug my code after recieving 405, 401, and 400 error messages. Wrong method lead to 405, and using the same user made the other error messages pop up. Started to add a unique number to the accounts and it is now turning in 200 and 204 statuses.
+Asked Gemini to debug my code because the cart counter wouldn't count. Seems to be a problem with the ID cart-count, because I have two menues with the same id. Changed the id to classes in order to mark them both. Naturally started with the product page, and made it work, but I for some reason cannot clear cart or see the number on other pages. Need to look more into this.

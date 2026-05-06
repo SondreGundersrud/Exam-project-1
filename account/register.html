@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../styles.css">
+    <script src="../cart/cart.js" defer></script>
     <title>Clair Collective | Home</title>
 <!-- Method: POST /auth/register
 Path: /account/register.html
@@ -20,7 +21,7 @@ User Stories: As a user, I want a validated register form that allows me to crea
         <ul>
             <li><a href="../product/allProducts.html">All Products</a></li>
             <li><a href="../account/login.html">Profile</a></li>
-            <li><a href="../cart/index.html">Cart (<span id="cart-count">0</span>)</a></li>
+            <li><a href="../cart/index.html">Cart (<span class="cart-count">0</span>)</a></li>
         </ul>
     </div>
     <nav class="nav">
@@ -28,7 +29,7 @@ User Stories: As a user, I want a validated register form that allows me to crea
         <ul class="navLinks">
             <li><a href="../product/allProducts.html">All Products</a></li>
             <li><a href="../account/login.html">Profile</a></li>
-            <li><a href="../cart/index.html">Cart (<span id="cart-count">0</span>)</a></li>
+            <li><a href="../cart/index.html">Cart (<span class="cart-count">0</span>)</a></li>
         </ul>
         <div class="ham-menu">
             <span></span>
@@ -44,7 +45,7 @@ User Stories: As a user, I want a validated register form that allows me to crea
             <h2>Create your account</h2>
             <div>
                 <label for="username">Username:</label>
-                <input type="text" placeholder="Username" id="username" name="username" required autocomplete="name">
+                <input type="text" placeholder="Username" id="username" name="name" required autocomplete="name">
             </div>
             <div>
                 <label for="email">Email:</label>
