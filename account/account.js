@@ -53,14 +53,33 @@ async function fetchWithToken(url) {
     }
 }
 
+const options = {
+    headers: {
+        Authorization: `Bearer ${accessToken}`,
+        "X-Noroff-API-Key": apiKey.data.key
+    }
+}
+    
+const response = await fetch(AUTH_LOGIN_URL, options)
+const data = await response.json()
+
+
+async function checkUserStatus() {
+    const token = localStorage.getItem('accessToken');
+    validatedUser(token);
+    if (!!token) {
+        alert("Please log in or register an account in order to add products to shopping cart.")
+    }
+}
+
+
+
 function onLoginFormSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
     const formFields = Object.fromEntries(formData);
     loginUser(AUTH_LOGIN_URL, formFields);
     window.location.replace('../index.html');
-    alert
-    console.log(loginUser)
 }
 
 loginForm.addEventListener("submit", onLoginFormSubmit);
