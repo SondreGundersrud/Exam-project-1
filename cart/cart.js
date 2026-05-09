@@ -1,5 +1,6 @@
 // Code is taken from the JS assignment 1, but I have made some changes to it to make it more suitable for this project. https://github.com/SondreGundersrud/sondregundersrud.github.io/blob/main/js/pages/checkout.js
 // Placeholder code:
+
 (function () {
     const STORAGE_KEY = "cart";
 
@@ -47,14 +48,14 @@
         elements.forEach(el => {
             el.textContent = count;
         });
-}
+    }
 
     window.Cart = { getCart, saveCart, addToCart, removeFromCart, getTotals, placeOrder, updateCartCount };
     console.log("Cart ready:", !!window.Cart);
 
     function initCheckoutUI() {
-        const list = document.querySelector("#cart-list");
-        const summary = document.querySelector("#cart-summary");
+        const list = document.querySelector("#cart-items");
+        const summary = document.querySelector("#cart-total");
         const placeBtn = document.querySelector("#place-order");
 
         if (!list || !summary) return;
@@ -95,6 +96,6 @@
         updateCartCount();
         render();
     }
-
+    updateCartCount();
     initCheckoutUI();
 })();

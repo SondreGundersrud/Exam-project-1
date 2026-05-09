@@ -63,16 +63,29 @@ const options = {
 const response = await fetch(AUTH_LOGIN_URL, options)
 const data = await response.json()
 
-
 async function checkUserStatus() {
+    const buyButton = document.querySelector(".putInCart");
     const token = localStorage.getItem('accessToken');
-    validatedUser(token);
-    if (!!token) {
-        alert("Please log in or register an account in order to add products to shopping cart.")
+    if (!token) {
+        alert("Please log in or register an account in order to add products to shopping cart.");
+        buyButtton.disabled = true;
+        return false;
+        }
+    try {
+        const loggedInUser = await fetch(AUTH_LOGIN_URL);
+        if (loggedInUser === true) {
+            buyButton.disabled = false;
+            return true;
+        }
+        else {
+            buyButton.disabled = true;
+            return false;
+        }
+    } catch (error) {
+        console.error(error);
+        return false;
     }
 }
-
-
 
 function onLoginFormSubmit(event) {
     event.preventDefault();
