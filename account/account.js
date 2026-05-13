@@ -87,6 +87,20 @@ async function checkUserStatus() {
     }
 }
 
+function logoutUser() {
+    const hasToken = localStorage.getItem('accessToken');
+    try {
+        if (hasToken && confirm("Are you sure you want to log out?")) {
+            localStorage.removeItem('accessToken');
+            window.location.replace('../index.html');
+            console.log("User logged out");
+        }
+    } catch (error) {
+        console.error(error);
+        return false;
+    }
+}
+
 function onLoginFormSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
