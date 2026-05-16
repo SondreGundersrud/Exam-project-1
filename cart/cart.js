@@ -3,115 +3,162 @@
 
 // Scroll to top button functionality taken from https://www.w3schools.com/howto/howto_js_scroll_to_top.asp and modified to fit the project.
 let topButton = document.getElementById("toTopBtn");
-window.onscroll = function() {scrollFunction()};
+window.onscroll = function () {
+	scrollFunction();
+};
 function scrollFunction() {
-    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-        topButton.style.display = "block";
-    } else {
-        topButton.style.display = "none";
-    }
+	if (
+		document.body.scrollTop > 20 ||
+		document.documentElement.scrollTop > 20
+	) {
+		topButton.style.display = "block";
+	} else {
+		topButton.style.display = "none";
+	}
 }
 
 function topFunction() {
-    document.body.scrollTop = 0;
-    document.documentElement.scrollTop = 0;
+	document.body.scrollTop = 0;
+	document.documentElement.scrollTop = 0;
 }
 
 (function () {
-    const STORAGE_KEY = "cart";
+	const STORAGE_KEY = "cart";
 
-    function getCart() {
-        try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; }
-        catch { return []; }
-    }
-    function saveCart(c) { localStorage.setItem(STORAGE_KEY, JSON.stringify(c)); }
+	function getCart() {
+		try {
+			return (
+				JSON.parse(localStorage.getItem(STORAGE_KEY)) || []
+			);
+		} catch {
+			return [];
+		}
+	}
 
-    function addToCart(item) {
-        const cart = getCart();
-        const i = cart.findIndex(x => x.id === item.id);
-        if (i >= 0) cart[i].qty += item.qty || 1;
-        else cart.push({ id: item.id, title: item.title, price: Number(item.price), image: item.image, qty: item.qty || 1 });
-        saveCart(cart);
-        updateCartCount();
-    }
+	function saveCart(c) {
+		localStorage.setItem(STORAGE_KEY, JSON.stringify(c));
+	}
 
-    function removeFromCart(id) {
-        const cart = getCart().filter(x => x.id !== id);
-        saveCart(cart);
-        updateCartCount();
-    }
+	function addToCart(item) {
+		const cart = getCart();
+		const i = cart.findIndex((x) => x.id === item.id);
+		if (i >= 0) cart[i].qty += item.qty || 1;
+		else
+			cart.push({
+				id: item.id,
+				title: item.title,
+				price: Number(item.price),
+				discountedPrice: Number(item.discountedPrice),
+				image: item.image,
+				qty: item.qty || 1,
+			});
+		saveCart(cart);
+		updateCartCount();
+	}
 
-    function getTotals() {
-        const cart = getCart();
-        const items = cart.reduce((s,x)=>s+x.qty,0);
-        const subtotal = cart.reduce((s,x)=>s + x.price * x.qty,0);
-        return { items, subtotal, currency: "USD" };
-    }
+	function removeFromCart(id) {
+		const cart = getCart().filter((x) => x.id !== id);
+		saveCart(cart);
+		updateCartCount();
+	}
 
-    function placeOrder() {
-        const orderId = "RD-" + Math.random().toString(36).slice(2,8).toUpperCase();
-        const order = { id: orderId, at: new Date().toISOString(), cart: getCart(), totals: getTotals() };
-        localStorage.setItem("lastOrder", JSON.stringify(order));
-        saveCart([]);
-        updateCartCount();
-        location.href = `../cart/index.html?id=${encodeURIComponent(orderId)}`;
-    }
+	function getTotals() {
+		const cart = getCart();
+		const items = cart.reduce((s, x) => s + x.qty, 0);
+		const subtotal = cart.reduce((sum, item) => {
+			const price = item.discountedPrice || item.price;
+			return sum + parseFloat(price) * item.qty;
+		}, 0);
+		return { items, subtotal, currency: "USD" };
+	}
 
-    function updateCartCount() {
-        const elements = document.querySelectorAll(".cart-count");
-        const count = getCart().reduce((s, x) => s + x.qty, 0);
-    
-        elements.forEach(el => {
-            el.textContent = count;
-        });
-    }
+	function placeOrder() {
+		const orderId =
+			"RD-" +
+			Math.random().toString(36).slice(2, 8).toUpperCase();
+		const order = {
+			id: orderId,
+			at: new Date().toISOString(),
+			cart: getCart(),
+			totals: getTotals(),
+		};
+		localStorage.setItem("lastOrder", JSON.stringify(order));
+		saveCart([]);
+		updateCartCount();
+		location.href = `../cart/index.html?id=${encodeURIComponent(orderId)}`;
+	}
 
-    window.Cart = { getCart, saveCart, addToCart, removeFromCart, getTotals, placeOrder, updateCartCount };
-    console.log("Cart ready:", !!window.Cart);
+	function updateCartCount() {
+		const elements = document.querySelectorAll(".cart-count");
+		const count = getCart().reduce((s, x) => s + x.qty, 0);
 
-    function initCheckoutUI() {
-        const list = document.querySelector("#cart-items");
-        const summary = document.querySelector("#cart-total");
-        const placeBtn = document.querySelector("#place-order");
+		elements.forEach((el) => {
+			el.textContent = count;
+		});
+	}
 
-        if (!list || !summary) return;
+	window.Cart = {
+		getCart,
+		saveCart,
+		addToCart,
+		removeFromCart,
+		getTotals,
+		placeOrder,
+		updateCartCount,
+	};
+	console.log("Cart ready:", !!window.Cart);
 
-        function render() {
-        const cart = getCart();
-        list.innerHTML = cart.length ? "" : "<p>Your cart is empty.</p>";
+	function initCheckoutUI() {
+		const list = document.querySelector("#cart-items");
+		const summary = document.querySelector("#cart-total");
+		const placeBtn = document.querySelector("#place-order");
 
-        cart.forEach(item => {
-            const row = document.createElement("div");
-            row.className = "cart-row";
-            row.innerHTML = `
+		if (!list || !summary) return;
+
+		function render() {
+			const cart = getCart();
+			list.innerHTML = cart.length
+				? ""
+				: "<p>Your cart is empty.</p>";
+
+			cart.forEach((item) => {
+				const row = document.createElement("div");
+				const itemTotal =
+					parseFloat(item.price.replace("$", "")) * item.qty;
+
+				row.className = "cart-row";
+				row.innerHTML = `
             <img src="${item.image}" alt="${item.title}" class="cart-thumb">
             <div class="cart-title">${item.title}</div>
             <div class="cart-price">$ ${Number(item.price).toFixed(2)}</div>
             <button class="cart-remove" data-id="${item.id}">Remove</button>
             `;
-            list.appendChild(row);
-        });
+				list.appendChild(row);
+			});
 
-        const subtotal = cart.reduce((s,x)=> s + Number(x.price) * Number(x.qty), 0);
-        summary.innerHTML = `<p><strong>Subtotal:</strong> $ ${subtotal.toFixed(2)}</p>`;
-        }
+			const subtotal = cart.reduce(
+				(s, x) => s + Number(x.price) * Number(x.qty),
+				0,
+			);
+			summary.innerHTML = `<p><strong>Subtotal:</strong> $ ${subtotal.toFixed(2)}</p>`;
+		}
 
-        list.addEventListener("click", (e) => {
-        const btn = e.target.closest(".cart-remove");
-        if (!btn) return;
-        removeFromCart(btn.dataset.id);
-        render();
-        updateCartCount();
-        });
+		list.addEventListener("click", (e) => {
+			const btn = e.target.closest(".cart-remove");
+			if (!btn) return;
+			removeFromCart(btn.dataset.id);
+			render();
+			updateCartCount();
+		});
 
-        placeBtn?.addEventListener("click", () => {
-        if (getCart().length === 0) return;
-        placeOrder();
-        });
+		placeBtn?.addEventListener("click", () => {
+			if (getCart().length === 0) return;
+			placeOrder();
+		});
 
-        updateCartCount();
-        render();
-    }
-    updateCartCount();
-    initCheckoutUI();
+		updateCartCount();
+		render();
+	}
+	updateCartCount();
+	initCheckoutUI();
 })();

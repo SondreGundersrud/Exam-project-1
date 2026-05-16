@@ -1,134 +1,168 @@
 // Code taken from my js assignment, https://github.com/SondreGundersrud/sondregundersrud.github.io/blob/main/js/pages/product.js and modified to fit the project.
 
-const container = document.querySelector("#detailedContainer")
-const API_URL = "https://v2.api.noroff.dev/online-shop"
+const container = document.querySelector(
+	"#detailedContainer",
+);
+const API_URL = "https://v2.api.noroff.dev/online-shop";
 
 async function fetchAPIProducts() {
-    try {
-        const params = new URLSearchParams(window.location.search)
-        const id = params.get("id")
+	try {
+		const params = new URLSearchParams(
+			window.location.search,
+		);
+		const id = params.get("id");
 
-        if (!id) {
-            container.textContent = "No product ID provided in the URL.";
-            return;
-        }
-        const response = await fetch(`${API_URL}/${id}`)
-        const data = await response.json()
-        const product = data.data
+		if (!id) {
+			container.textContent =
+				"No product ID provided in the URL.";
+			return;
+		}
+		const response = await fetch(`${API_URL}/${id}`);
+		const data = await response.json();
+		const product = data.data;
 
-    const productDiv = document.createElement("div");
-    productDiv.className = "product-details";
+		const productDiv = document.createElement("div");
+		productDiv.className = "product-details";
 
-    const image = document.createElement("img");
-    image.className = "product-image";
-    image.src = product.image.url;
-    image.alt = product.image.alt;
+		const image = document.createElement("img");
+		image.className = "product-image";
+		image.src = product.image.url;
+		image.alt = product.image.alt;
 
-    const infoDiv = document.createElement("div");
-    infoDiv.className = "product-info";
+		const infoDiv = document.createElement("div");
+		infoDiv.className = "product-info";
 
-    const title = document.createElement("h2");
-    title.className = "product-title";
-    title.textContent = product.title;
+		const title = document.createElement("h2");
+		title.className = "product-title";
+		title.textContent = product.title;
 
-    const description = document.createElement("p");
-    description.className = "product-description";
-    description.textContent = product.description;
+		const description = document.createElement("p");
+		description.className = "product-description";
+		description.textContent = product.description;
 
-    const discountedPrice = document.createElement("h3");
-    discountedPrice.className = "discountedPrice";
-    discountedPrice.textContent = `$ ${product.discountedPrice?.toLocaleString("en-US", { minimumFractionDigits: 2 })}`;
+		const discountedPrice = document.createElement("h3");
+		discountedPrice.className = "discountedPrice";
+		discountedPrice.textContent = `$ ${product.discountedPrice?.toLocaleString("en-US", { minimumFractionDigits: 2 })}`;
 
-    const price = document.createElement("p");
-    price.className = "product-price";
-    price.textContent = `$ ${product.price.toLocaleString("en-US", { minimumFractionDigits: 2 })}`;
-    
-    const buyButton = document.createElement("button");
-    buyButton.className = "+= ctaButton putInCart";
-    buyButton.textContent = "Add to Cart";
-    buyButton.addEventListener("click", () => {
-        if (!window.Cart) return console.error("Cart not available");
-    window.Cart.addToCart({
-        id: product.id,
-        title: product.title,
-        price: Number(product.price),
-        image: product?.image?.url ?? product?.images?.[0]?.url ?? ""
-        });
-    buyButton.textContent = "Added to cart!";
-    setTimeout(() => (buyButton.textContent = "Add to Cart"), 2000);
-    });
+		const price = document.createElement("p");
+		price.className = "product-price";
+		price.textContent = `$ ${product.price.toLocaleString("en-US", { minimumFractionDigits: 2 })}`;
 
-    const backButton = document.createElement("button");
-    backButton.className = "ctaButton";
-    backButton.textContent = "← Back to products";
-    backButton.addEventListener("click", () => history.back());
+		const buyButton = document.createElement("button");
+		buyButton.className = "+= ctaButton putInCart";
+		buyButton.textContent = "Add to Cart";
+		buyButton.addEventListener("click", () => {
+			if (!window.Cart)
+				return console.error("Cart not available");
+			window.Cart.addToCart({
+				id: product.id,
+				title: product.title,
+				price: Number(product.price),
+				discountedPrice: Number(product.discountedPrice),
+				image:
+					product?.image?.url ?? product?.images?.[0]?.url ?? "",
+			});
+			buyButton.textContent = "Added to cart!";
+			setTimeout(
+				() => (buyButton.textContent = "Add to Cart"),
+				2000,
+			);
+		});
 
-    if (product.discountedPrice < product.price) {
-        price.style.textDecoration = "line-through";
-        infoDiv.append(title, description, price, discountedPrice, backButton, buyButton);
-    } else {
-        infoDiv.append(title, description, price, backButton, buyButton);
-    }
+		const backButton = document.createElement("button");
+		backButton.className = "ctaButton";
+		backButton.textContent = "← Back to products";
+		backButton.addEventListener("click", () =>
+			history.back(),
+		);
 
-    productDiv.append(image, infoDiv);
-    detailedContainer.appendChild(productDiv);
-    await showReviews(product.reviews);
-    } catch (error) {
-    console.error("Error while fetching product:", error);
-    }
+		if (product.discountedPrice < product.price) {
+			price.style.textDecoration = "line-through";
+			infoDiv.append(
+				title,
+				description,
+				price,
+				discountedPrice,
+				backButton,
+				buyButton,
+			);
+		} else {
+			infoDiv.append(
+				title,
+				description,
+				price,
+				backButton,
+				buyButton,
+			);
+		}
+
+		productDiv.append(image, infoDiv);
+		container.appendChild(productDiv);
+		await showReviews(product.reviews);
+	} catch (error) {
+		console.error("Error while fetching product:", error);
+	}
 }
 
 function showReviews(reviews) {
-    const reviewList = document.querySelector("#reviewList");
-    if (!reviews || reviews.length === 0) {
-        reviewList.innerHTML = "<p>No reviews yet.</p>";
-        return;
-    }
-    
-    reviews.forEach(function(review) {
-    const li = document.createElement("li");
-    li.className = "review-item";
-    li.innerHTML = `<h3>${review.username}</h3>
+	const reviewList = document.querySelector("#reviewList");
+	if (!reviews || reviews.length === 0) {
+		reviewList.innerHTML = "<p>No reviews yet.</p>";
+		return;
+	}
+
+	reviews.forEach(function (review) {
+		const li = document.createElement("li");
+		li.className = "review-item";
+		li.innerHTML = `<h3>${review.username}</h3>
                     <p>Rating: ${review.rating} / 5</p>
                     <p>"${review.description}"</p>`;
-    reviewList.appendChild(li);
-    });
+		reviewList.appendChild(li);
+	});
 }
 
 async function shareProduct() {
-    const shareUrl = window.location.href;
-    try {         
-        await navigator.clipboard.writeText(shareUrl);
-        alert("Copied the URL: " + shareUrl);
-    } catch (error) {
-        console.error("Error copying URL to clipboard:", error);
-        alert("Failed to copy URL. Please try copying manually: " + shareUrl);
-    }
+	const shareUrl = window.location.href;
+	try {
+		await navigator.clipboard.writeText(shareUrl);
+		alert("Copied the URL: " + shareUrl);
+	} catch (error) {
+		console.error("Error copying URL to clipboard:", error);
+		alert(
+			"Failed to copy URL. Please try copying manually: " +
+				shareUrl,
+		);
+	}
 }
 
 // Scroll to top button functionality taken from https://www.w3schools.com/howto/howto_js_scroll_to_top.asp and modified to fit the project, accessed on 29.04.2026.
 let topButton = document.getElementById("toTopBtn");
-window.onscroll = function() {scrollFunction()};
+window.onscroll = function () {
+	scrollFunction();
+};
 function scrollFunction() {
-    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-        topButton.style.display = "block";
-    } else {
-        topButton.style.display = "none";
-    }
+	if (
+		document.body.scrollTop > 20 ||
+		document.documentElement.scrollTop > 20
+	) {
+		topButton.style.display = "block";
+	} else {
+		topButton.style.display = "none";
+	}
 }
 
 function topFunction() {
-    document.body.scrollTop = 0;
-    document.documentElement.scrollTop = 0;
+	document.body.scrollTop = 0;
+	document.documentElement.scrollTop = 0;
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    window.Cart?.updateCartCount?.();
+	window.Cart?.updateCartCount?.();
 });
 
-fetchAPIProducts()
+fetchAPIProducts();
 
-    // User Stories:
-    // As a user, I want to see a responsive layout showing the product's title, description, price, discounted price (if applicable), rating, reviews, and tags fetched from the API
-    // As a user, I want each specific product page to have a "share" icon with a shareable URL (including a query string or hash parameter containing the product ID), so I can share the product with others easily
-    // As the user, when logged in, I want an "Add to Cart" button on the product page, so I can add products to my shopping cart
+// User Stories:
+// As a user, I want to see a responsive layout showing the product's title, description, price, discounted price (if applicable), rating, reviews, and tags fetched from the API
+// As a user, I want each specific product page to have a "share" icon with a shareable URL (including a query string or hash parameter containing the product ID), so I can share the product with others easily
+// As the user, when logged in, I want an "Add to Cart" button on the product page, so I can add products to my shopping cart
