@@ -12,8 +12,8 @@
     <title>Clair Collective | Checkout</title>
 <!-- Path: /checkout/index.html
 User Stories:
-As a user, I want to fill out a delivery address form with my details
-As a user, I want to select from various payment methods (functionality not required - form only)
+✅As a user, I want to fill out a delivery address form with my details
+✅As a user, I want to select from various payment methods (functionality not required - form only)
 ✅As a user, I want a "Complete Purchase" button that submits my order and takes me to a success page -->
 </head>
 <body>
@@ -45,8 +45,37 @@ As a user, I want to select from various payment methods (functionality not requ
         <h1>Confirm your order</h1>
         <div id="cart-items"></div>
         <div id="cart-total"></div>
-        <a href="../cart/index.html" class="ctaButton">Go to cart</a>
+        <form id="checkout-form">
+            <h2>Delivery Address</h2>
+            <div>
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div>
+                <label for="address">Address:</label>
+                <input type="text" id="address" name="address" required>
+            </div>
+            <div>
+                <label for="city">City:</label>
+                <input type="text" id="city" name="city" required>
+            </div>
+            <div>
+                <label for="postal-code">Postal Code:</label>
+                <input type="text" id="postal-code" name="postal-code" required pattern="\d{5}">
+            </div>
+            <div>
+                <label for="country">Country:</label>
+                <input type="text" id="country" name="country" required>
+            </div>
+
+            <h2>Payment Method</h2>
+            <div class="payment-methods">
+                <label><input type="radio" name="payment-method" value="credit-card" required> Credit Card</label>
+                <label><input type="radio" name="payment-method" value="paypal"> PayPal</label>
+                <label><input type="radio" name="payment-method" value="bank-transfer"> Bank Transfer</label>
+            </div>
         <a href="../success/index.html" class="ctaButton">Complete Purchase</a>
+        <a href="../cart/index.html" class="ctaButton">Go to cart</a>
     </section>
 </main>
 <footer>
@@ -54,6 +83,5 @@ As a user, I want to select from various payment methods (functionality not requ
     <p>&copy; 2024 Clair Collective. All rights reserved.</p>
 </footer>
 <script src="../phone.js"></script>
-<!-- <script src="../cart/cart.js"></script> -->
 </body>
 </html>

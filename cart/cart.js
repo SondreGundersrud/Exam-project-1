@@ -130,6 +130,9 @@
 				row.innerHTML = `
             <img src="${item.image}" alt="${item.title}" class="cart-thumb">
             <div class="cart-title">${item.title}</div>
+			<button class=minusCart data-id="${item.id}">-</button>
+			<div class="cart-qty">${item.qty}</div>
+			<button class=plusCart data-id="${item.id}">+</button>
             <div class="cart-price">$ ${Number(item.price).toFixed(2)}</div>
             <button class="cart-remove" data-id="${item.id}">Remove</button>
             `;
@@ -149,6 +152,28 @@
 			removeFromCart(btn.dataset.id);
 			render();
 			updateCartCount();
+		});
+
+		list.addEventListener("click", (e) => {
+			const btn = e.target.closest(".plusCart");
+			window.Cart.changeQuantity(plusBtn.dataset.id, 1);
+			return;
+			render();
+			updateCartCount();
+		});
+
+		list.addEventListener("click", (e) => {
+			const btn = e.target.closest(".minusCart");
+			if (!btn) return;
+			const item = getCart().find(
+				(x) => x.id === btn.dataset.id,
+			);
+			if (item && item.qty > 1) {
+				item.qty--;
+				saveCart(getCart());
+				render();
+				updateCartCount();
+			}
 		});
 
 		placeBtn?.addEventListener("click", () => {
