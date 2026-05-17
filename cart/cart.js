@@ -57,6 +57,12 @@
 		updateCartCount();
 	}
 
+	function clearCart() {
+		localStorage.clear(STORAGE_KEY);
+		render();
+		updateCartCount();
+	}
+
 	function removeFromCart(id) {
 		const cart = getCart().filter((x) => x.id !== id);
 		saveCart(cart);
@@ -103,6 +109,7 @@
 		saveCart,
 		addToCart,
 		removeFromCart,
+		clearCart,
 		getTotals,
 		placeOrder,
 		updateCartCount,
@@ -155,8 +162,19 @@
 		});
 
 		list.addEventListener("click", (e) => {
+			const btn = e.target.closest("#clear-cart");
+			if (!btn) return;
+			// localStorage.removeItem(STORAGE_KEY);
+			localStorage.clear();
+			// saveCart([]);
+			render();
+			updateCartCount();
+		});
+
+		list.addEventListener("click", (e) => {
 			const btn = e.target.closest(".plusCart");
-			window.Cart.changeQuantity(plusBtn.dataset.id, 1);
+			if (!btn) return;
+			window.Cart.changeQuantity(btn.dataset.id, 1);
 			return;
 			render();
 			updateCartCount();
@@ -167,6 +185,7 @@
 			if (!btn) return;
 			const item = getCart().find(
 				(x) => x.id === btn.dataset.id,
+				-1,
 			);
 			if (item && item.qty > 1) {
 				item.qty--;
