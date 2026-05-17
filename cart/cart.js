@@ -2,27 +2,28 @@
 // Placeholder code:
 
 // Scroll to top button functionality taken from https://www.w3schools.com/howto/howto_js_scroll_to_top.asp and modified to fit the project.
-let topButton = document.getElementById("toTopBtn");
-window.onscroll = function () {
-	scrollFunction();
-};
-function scrollFunction() {
-	if (
-		document.body.scrollTop > 20 ||
-		document.documentElement.scrollTop > 20
-	) {
-		topButton.style.display = "block";
-	} else {
-		topButton.style.display = "none";
-	}
-}
-
-function topFunction() {
-	document.body.scrollTop = 0;
-	document.documentElement.scrollTop = 0;
-}
 
 (function () {
+	let topButton = document.getElementById("toTopBtn");
+	window.onscroll = function () {
+		scrollFunction();
+	};
+	function scrollFunction() {
+		if (
+			document.body.scrollTop > 20 ||
+			document.documentElement.scrollTop > 20
+		) {
+			topButton.style.display = "block";
+		} else {
+			topButton.style.display = "none";
+		}
+	}
+
+	function topFunction() {
+		document.body.scrollTop = 0;
+		document.documentElement.scrollTop = 0;
+	}
+
 	const STORAGE_KEY = "cart";
 
 	function getCart() {
@@ -123,8 +124,7 @@ function topFunction() {
 
 			cart.forEach((item) => {
 				const row = document.createElement("div");
-				const itemTotal =
-					parseFloat(item.price.replace("$", "")) * item.qty;
+				const itemTotal = item.price * item.qty;
 
 				row.className = "cart-row";
 				row.innerHTML = `
